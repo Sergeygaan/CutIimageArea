@@ -1,0 +1,1 @@
+opencv_createsamples.exe -info C:\Users\Sergey\Desktop\Vision\CutIimageArea\Face\ProcessedPhotos\Good.dat -vec samples.vec -w 30 -h 10
