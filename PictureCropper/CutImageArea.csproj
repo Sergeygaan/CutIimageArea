@@ -57,6 +57,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CascadeTraining.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CascadeTraining.Designer.cs">
+      <DependentUpon>CascadeTraining.cs</DependentUpon>
+    </Compile>
     <Compile Include="CommonFormat.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +79,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CascadeTraining.resx">
+      <DependentUpon>CascadeTraining.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CommonFormat.resx">
       <DependentUpon>CommonFormat.cs</DependentUpon>
     </EmbeddedResource>

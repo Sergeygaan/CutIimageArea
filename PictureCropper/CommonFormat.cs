@@ -10,7 +10,7 @@ namespace CutImageArea
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button_GoodDat_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() != DialogResult.OK)
             {
@@ -20,7 +20,7 @@ namespace CutImageArea
             textBox_GoodDat.Text = openFileDialog1.FileName;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button_GoodVec_Click(object sender, EventArgs e)
         {
             using (var folderDialog = new FolderBrowserDialog())
             {
@@ -31,7 +31,7 @@ namespace CutImageArea
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button_Format_Click(object sender, EventArgs e)
         {
             string GoodDat = "-info " + textBox_GoodDat.Text + " ";
             string GoodVec = "-vec " + textBox_GoodVec.Text + "\\" + textBox_NameVec.Text + ".vec ";

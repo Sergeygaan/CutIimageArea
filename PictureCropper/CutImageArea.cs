@@ -112,5 +112,11 @@ namespace CutImageArea
             CommonFormat CommonFormatForm = new CommonFormat();
             CommonFormatForm.Show();
         }
+
+        private void Haarcascade_Click(object sender, EventArgs e)
+        {
+            CascadeTraining CascadeTrainingForm = new CascadeTraining();
+            CascadeTrainingForm.Show();
+        }
     }
 }

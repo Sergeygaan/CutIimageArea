@@ -53,9 +53,9 @@
             this.PathGoodDat.AutoSize = true;
             this.PathGoodDat.Location = new System.Drawing.Point(12, 9);
             this.PathGoodDat.Name = "PathGoodDat";
-            this.PathGoodDat.Size = new System.Drawing.Size(307, 13);
+            this.PathGoodDat.Size = new System.Drawing.Size(333, 13);
             this.PathGoodDat.TabIndex = 0;
-            this.PathGoodDat.Text = "Путь до файла описания положительных изображений .dat\r\n";
+            this.PathGoodDat.Text = "Путь до файла описания положительных изображений Good.dat\r\n";
             // 
             // label1
             // 
@@ -91,13 +91,13 @@
             // 
             // button_GoodDat
             // 
-            this.button_GoodDat.Location = new System.Drawing.Point(325, 5);
+            this.button_GoodDat.Location = new System.Drawing.Point(351, 5);
             this.button_GoodDat.Name = "button_GoodDat";
             this.button_GoodDat.Size = new System.Drawing.Size(26, 20);
             this.button_GoodDat.TabIndex = 4;
             this.button_GoodDat.Text = "...";
             this.button_GoodDat.UseVisualStyleBackColor = true;
-            this.button_GoodDat.Click += new System.EventHandler(this.button1_Click);
+            this.button_GoodDat.Click += new System.EventHandler(this.button_GoodDat_Click);
             // 
             // textBox_GoodDat
             // 
@@ -121,21 +121,21 @@
             this.button_GoodVec.TabIndex = 9;
             this.button_GoodVec.Text = "...";
             this.button_GoodVec.UseVisualStyleBackColor = true;
-            this.button_GoodVec.Click += new System.EventHandler(this.button2_Click);
+            this.button_GoodVec.Click += new System.EventHandler(this.button_GoodVec_Click);
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(258, 235);
+            this.button4.Location = new System.Drawing.Point(258, 215);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(136, 26);
             this.button4.TabIndex = 11;
             this.button4.Text = "Формировать строку";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button4.Click += new System.EventHandler(this.button_Format_Click);
             // 
             // textBoxResult
             // 
-            this.textBoxResult.Location = new System.Drawing.Point(11, 280);
+            this.textBoxResult.Location = new System.Drawing.Point(12, 260);
             this.textBoxResult.Name = "textBoxResult";
             this.textBoxResult.Size = new System.Drawing.Size(592, 20);
             this.textBoxResult.TabIndex = 12;
@@ -143,7 +143,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 264);
+            this.label4.Location = new System.Drawing.Point(12, 244);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(544, 13);
             this.label4.TabIndex = 13;
@@ -195,7 +195,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(614, 313);
+            this.ClientSize = new System.Drawing.Size(609, 287);
             this.Controls.Add(this.textBox_NameVec);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.WidthNumericUpDown);
