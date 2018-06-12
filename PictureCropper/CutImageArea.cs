@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Windows.Forms;
 using Emgu.CV;
 using Emgu.CV.Structure;
@@ -107,12 +106,22 @@ namespace CutImageArea
             //_currentImage = _eventImage.NextNumber(_fileLocationList, _currentImage, PictureWindow);
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Метод, открытия формы формирование положительных изображений к единому формату
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Click_OpenCommonFormat(object sender, EventArgs e)
         {
             CommonFormat CommonFormatForm = new CommonFormat();
             CommonFormatForm.Show();
         }
 
+        /// <summary>
+        /// Метод, открытия формы обучения каскада Хаара
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Haarcascade_Click(object sender, EventArgs e)
         {
             CascadeTraining CascadeTrainingForm = new CascadeTraining();

@@ -3,13 +3,24 @@ using System.Windows.Forms;
 
 namespace CutImageArea
 {
+    /// <summary>
+    /// Класс, для формирования строки по обучению каскада хаара
+    /// </summary>
     public partial class CascadeTraining : Form
     {
+        /// <summary>
+        /// Конструктор класса
+        /// </summary>
         public CascadeTraining()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Адрес папки с куда класть готовый каскад после обучения
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             using (var folderDialog = new FolderBrowserDialog())
@@ -22,6 +33,11 @@ namespace CutImageArea
 
         }
 
+        /// <summary>
+        /// Путь до файла описания положительных изображений .vec
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() != DialogResult.OK)
@@ -32,6 +48,11 @@ namespace CutImageArea
             textBox_GoodVec.Text = openFileDialog1.FileName;
         }
 
+        /// <summary>
+        /// Путь до файла описания положительных изображений Bad.dat
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BadDat_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() != DialogResult.OK)
@@ -42,6 +63,11 @@ namespace CutImageArea
             textBox_BadDat.Text = openFileDialog1.FileName;
         }
 
+        /// <summary>
+        /// Метод формирования итоговой строки для передачи в консоль
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button4_Click(object sender, EventArgs e)
         {
             string Haarcascade = "-data " + textBox_Haarcascade.Text + " ";

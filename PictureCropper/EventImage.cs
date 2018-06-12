@@ -26,6 +26,9 @@ namespace CutImageArea
         /// </summary>
         private Label _countImage;
 
+        /// <summary>
+        /// Конструктор класса
+        /// </summary>
         public EventImage(Label CountImage)
         {
             _countImage = CountImage;
