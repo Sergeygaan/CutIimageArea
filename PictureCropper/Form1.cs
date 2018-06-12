@@ -45,12 +45,16 @@ namespace CutImageArea
         /// </summary>
         private bool _flagButton = false;
 
+        private EventMouse _eventMouse;
+
         /// <summary>
         /// Инициализация формы
         /// </summary>
         public CutImageArea()
         {
             InitializeComponent();
+
+            _eventMouse = new EventMouse();
         }
        
         /// <summary>
@@ -60,8 +64,7 @@ namespace CutImageArea
         /// <param name="e"></param>
         private void PictureWindow_MouseDown(object sender, MouseEventArgs e)
         {
-            _mouseDownStart = new System.Drawing.Point(e.X, e.Y);
-            _flagButton = true;
+            _eventMouse.MouseDown(e);
         }
 
         /// <summary>
@@ -71,22 +74,7 @@ namespace CutImageArea
         /// <param name="e"></param>
         private void PictureWindow_MouseMove(object sender, MouseEventArgs e)
         {
-            if ((_currentImage != null) && (_flagButton))
-            {
-                Point Select = new Point(Math.Min(e.X, _mouseDownStart.X), Math.Min(e.Y, _mouseDownStart.Y));
-                Point Size = new Point(0, 0);
-                Size.X = Math.Abs(e.X - _mouseDownStart.X);
-                Size.Y = Math.Abs(e.Y - _mouseDownStart.Y);
-                double sx = _currentImage.Width / (double)PictureWindow.Width;
-                double sy = _currentImage.Height / (double)PictureWindow.Height;
-                Rectangle Rec = new Rectangle((int)(Select.X * sx), (int)(Select.Y * sy), (int)(Size.X * sx), (int)(Size.Y * sy));
-
-                Image<Bgr, Byte> Sel = _currentImage.Clone();
-                Sel.Draw(Rec, new Bgr(1, 240, 1), 2);
-                PictureWindow.Image = Sel;
-
-                Sel.Dispose();
-            }
+            _eventMouse.MouseMove(e, _currentImage, PictureWindow);
         }
 
         /// <summary>
@@ -96,27 +84,7 @@ namespace CutImageArea
         /// <param name="e"></param>
         private void PictureWindow_MouseUp(object sender, MouseEventArgs e)
         {
-            if (_currentImage != null)
-            {
-                _flagButton = false;
-
-                Point Select = new Point(Math.Min(e.X, _mouseDownStart.X), Math.Min(e.Y, _mouseDownStart.Y));
-                Point Size = new Point(0, 0);
-                Size.X = Math.Abs(e.X - _mouseDownStart.X);
-                Size.Y = Math.Abs(e.Y - _mouseDownStart.Y);
-                double sx = _currentImage.Width / (double)PictureWindow.Width;
-                double sy = _currentImage.Height / (double)PictureWindow.Height;
-                Rectangle Rec = new Rectangle((int)(Select.X * sx), (int)(Select.Y * sy), (int)(Size.X * sx), (int)(Size.Y * sy));
-
-                Image<Bgr, Byte> Sel = _currentImage.Clone();
-                Sel.Draw(Rec, new Bgr(0, 0, 0), 2);
-                PictureWindow.Image = Sel;
-                _currentImage.ROI = Rec;
-                _carvedImage = _currentImage.Clone();
-                CvInvoke.cvResetImageROI(_currentImage);
-
-                Sel.Dispose();
-            }
+            _carvedImage = _eventMouse.MouseUp(e, _currentImage, PictureWindow);
         }
 
         /// <summary>
@@ -139,6 +107,7 @@ namespace CutImageArea
             }
             else
             {
+                _currentImageIndex += 1;
                 MessageBox.Show("Изображения закончились");
             }
         }
@@ -148,7 +117,7 @@ namespace CutImageArea
         /// </summary>
         private void SaveImage()
         {
-            if (_fileLocationList.Count != 0)
+            if ((_fileLocationList.Count != 0) && ((_currentImageIndex < _fileLocationList.Count)))
             {
                 string Path = _fileLocationList[_currentImageIndex].Substring(0, _fileLocationList[_currentImageIndex].LastIndexOf("\\") + 1) + "ProcessedPhotos";
 
