@@ -46,6 +46,7 @@
             this.PictureWindow.TabIndex = 2;
             this.PictureWindow.TabStop = false;
             this.PictureWindow.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PictureWindow_MouseDown);
+            this.PictureWindow.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PictureWindow_MouseMove);
             this.PictureWindow.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PictureWindow_MouseUp);
             // 
             // button1
@@ -78,7 +79,7 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.SaveImage_Button);
             // 
-            // Form1
+            // CutImageArea
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -87,7 +88,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.PictureWindow);
-            this.Name = "Form1";
+            this.Name = "CutImageArea";
             this.Text = "CropPic";
             ((System.ComponentModel.ISupportInitialize)(this.PictureWindow)).EndInit();
             this.ResumeLayout(false);
