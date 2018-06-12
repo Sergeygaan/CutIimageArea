@@ -82,12 +82,8 @@ namespace CutImageArea
                 Rectangle Rec = new Rectangle((int)(Select.X * sx), (int)(Select.Y * sy), (int)(Size.X * sx), (int)(Size.Y * sy));
 
                 Image<Bgr, Byte> Sel = _currentImage.Clone();
-                Sel.Draw(Rec, new Bgr(1, 255, 1), 2);
+                Sel.Draw(Rec, new Bgr(1, 240, 1), 2);
                 PictureWindow.Image = Sel;
-                //_currentImage.ROI = Rec;
-
-                //_carvedImage = _currentImage.Clone();
-                //CvInvoke.cvResetImageROI(_currentImage);
 
                 Sel.Dispose();
             }
