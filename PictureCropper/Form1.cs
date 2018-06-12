@@ -23,7 +23,7 @@ namespace CutImageArea
         /// <summary>
         /// Номер текущего изображения в папке
         /// </summary>
-        private int _currentImageIndex = 0;
+        private int _currentImageIndex = -1;
 
         /// <summary>
         /// Адрес файла с описанием
@@ -124,14 +124,22 @@ namespace CutImageArea
         /// </summary>
         private void NextNumber()
         {
-            if (_currentImageIndex + 1 < _fileLocationList.Count)
+            if (_currentImageIndex < _fileLocationList.Count - 1)
             {
                 _currentImageIndex += 1;
+
+                //вывод текста с номером текущего изображения
+                CountImage.Text = (_currentImageIndex + 1).ToString() + " из " + _fileLocationList.Count.ToString();
+
                 if (File.Exists(_fileLocationList[_currentImageIndex]))
                 {
                     _currentImage = new Image<Emgu.CV.Structure.Bgr, byte>(_fileLocationList[_currentImageIndex]);
                     PictureWindow.Image = _currentImage;
                 }
+            }
+            else
+            {
+                MessageBox.Show("Изображения закончились");
             }
         }
 
@@ -175,16 +183,18 @@ namespace CutImageArea
                 DirectoryInfo ThisDir = new DirectoryInfo(Folder);
                 FileInfo[] FI = ThisDir.GetFiles();
 
-                for (int l = 0; l < FI.Length; l++) //Запишем все изображения из папки в лист
+                for (int Index = 0; Index < FI.Length; Index++) //Запишем все изображения из папки в лист
                 {
-                    if ((FI[l].Extension == ".jpg") || (FI[l].Extension == ".jpeg") || (FI[l].Extension == ".bmp") || (FI[l].Extension == ".png"))
+                    if ((FI[Index].Extension == ".jpg") || (FI[Index].Extension == ".jpeg") || (FI[Index].Extension == ".bmp") || (FI[Index].Extension == ".png"))
                     {
-                        _fileLocationList.Add(FI[l].FullName);
+                        _fileLocationList.Add(FI[Index].FullName);
                     }
                 }
 
-                _currentImage = new Image<Emgu.CV.Structure.Bgr, byte>(_fileLocationList[_currentImageIndex]);
-                PictureWindow.Image = _currentImage; //Вывод текущего изображения
+                NextNumber();
+                //_currentImage = new Image<Emgu.CV.Structure.Bgr, byte>(_fileLocationList[_currentImageIndex]);
+                //PictureWindow.Image = _currentImage; //Вывод текущего изображения
+                //CountImageText();
 
                 string Path = Folder + "\\ProcessedPhotos\\Good.dat";
 

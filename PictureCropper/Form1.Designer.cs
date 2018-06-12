@@ -33,6 +33,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.CountImage = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PictureWindow)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,7 +42,7 @@
             this.PictureWindow.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
             this.PictureWindow.Location = new System.Drawing.Point(3, 3);
             this.PictureWindow.Name = "PictureWindow";
-            this.PictureWindow.Size = new System.Drawing.Size(461, 446);
+            this.PictureWindow.Size = new System.Drawing.Size(461, 432);
             this.PictureWindow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PictureWindow.TabIndex = 2;
             this.PictureWindow.TabStop = false;
@@ -61,7 +62,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(470, 47);
+            this.button2.Location = new System.Drawing.Point(470, 63);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(146, 23);
             this.button2.TabIndex = 4;
@@ -71,7 +72,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(470, 76);
+            this.button3.Location = new System.Drawing.Point(470, 92);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(176, 23);
             this.button3.TabIndex = 5;
@@ -79,11 +80,20 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.SaveImage_Button);
             // 
+            // CountImage
+            // 
+            this.CountImage.AutoSize = true;
+            this.CountImage.Location = new System.Drawing.Point(13, 442);
+            this.CountImage.Name = "CountImage";
+            this.CountImage.Size = new System.Drawing.Size(0, 13);
+            this.CountImage.TabIndex = 6;
+            // 
             // CutImageArea
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(780, 466);
+            this.Controls.Add(this.CountImage);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -92,6 +102,7 @@
             this.Text = "CropPic";
             ((System.ComponentModel.ISupportInitialize)(this.PictureWindow)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -101,6 +112,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label CountImage;
     }
 }
 
