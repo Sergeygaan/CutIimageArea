@@ -33,16 +33,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.button_GoodDat = new System.Windows.Forms.Button();
+            this.textBox_GoodDat = new System.Windows.Forms.TextBox();
+            this.textBox_GoodVec = new System.Windows.Forms.TextBox();
+            this.button_GoodVec = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.textBoxResult = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.HeightNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.WidthNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox_NameVec = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.HeightNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WidthNumericUpDown)).BeginInit();
@@ -89,39 +89,39 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // button1
+            // button_GoodDat
             // 
-            this.button1.Location = new System.Drawing.Point(325, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(26, 20);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "...";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button_GoodDat.Location = new System.Drawing.Point(325, 5);
+            this.button_GoodDat.Name = "button_GoodDat";
+            this.button_GoodDat.Size = new System.Drawing.Size(26, 20);
+            this.button_GoodDat.TabIndex = 4;
+            this.button_GoodDat.Text = "...";
+            this.button_GoodDat.UseVisualStyleBackColor = true;
+            this.button_GoodDat.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox1
+            // textBox_GoodDat
             // 
-            this.textBox1.Location = new System.Drawing.Point(15, 26);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(589, 20);
-            this.textBox1.TabIndex = 5;
+            this.textBox_GoodDat.Location = new System.Drawing.Point(15, 26);
+            this.textBox_GoodDat.Name = "textBox_GoodDat";
+            this.textBox_GoodDat.Size = new System.Drawing.Size(589, 20);
+            this.textBox_GoodDat.TabIndex = 5;
             // 
-            // textBox2
+            // textBox_GoodVec
             // 
-            this.textBox2.Location = new System.Drawing.Point(15, 71);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(589, 20);
-            this.textBox2.TabIndex = 6;
+            this.textBox_GoodVec.Location = new System.Drawing.Point(15, 71);
+            this.textBox_GoodVec.Name = "textBox_GoodVec";
+            this.textBox_GoodVec.Size = new System.Drawing.Size(589, 20);
+            this.textBox_GoodVec.TabIndex = 6;
             // 
-            // button2
+            // button_GoodVec
             // 
-            this.button2.Location = new System.Drawing.Point(578, 48);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(26, 20);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "...";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button_GoodVec.Location = new System.Drawing.Point(578, 48);
+            this.button_GoodVec.Name = "button_GoodVec";
+            this.button_GoodVec.Size = new System.Drawing.Size(26, 20);
+            this.button_GoodVec.TabIndex = 9;
+            this.button_GoodVec.Text = "...";
+            this.button_GoodVec.UseVisualStyleBackColor = true;
+            this.button_GoodVec.Click += new System.EventHandler(this.button2_Click);
             // 
             // button4
             // 
@@ -156,6 +156,11 @@
             this.HeightNumericUpDown.Name = "HeightNumericUpDown";
             this.HeightNumericUpDown.Size = new System.Drawing.Size(120, 20);
             this.HeightNumericUpDown.TabIndex = 15;
+            this.HeightNumericUpDown.Value = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
             // 
             // WidthNumericUpDown
             // 
@@ -163,13 +168,18 @@
             this.WidthNumericUpDown.Name = "WidthNumericUpDown";
             this.WidthNumericUpDown.Size = new System.Drawing.Size(120, 20);
             this.WidthNumericUpDown.TabIndex = 16;
+            this.WidthNumericUpDown.Value = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
             // 
-            // textBox3
+            // textBox_NameVec
             // 
-            this.textBox3.Location = new System.Drawing.Point(16, 113);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(589, 20);
-            this.textBox3.TabIndex = 18;
+            this.textBox_NameVec.Location = new System.Drawing.Point(16, 113);
+            this.textBox_NameVec.Name = "textBox_NameVec";
+            this.textBox_NameVec.Size = new System.Drawing.Size(589, 20);
+            this.textBox_NameVec.TabIndex = 18;
             // 
             // label5
             // 
@@ -186,17 +196,17 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(614, 313);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBox_NameVec);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.WidthNumericUpDown);
             this.Controls.Add(this.HeightNumericUpDown);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBoxResult);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.button_GoodVec);
+            this.Controls.Add(this.textBox_GoodVec);
+            this.Controls.Add(this.textBox_GoodDat);
+            this.Controls.Add(this.button_GoodDat);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -217,16 +227,16 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button_GoodDat;
+        private System.Windows.Forms.TextBox textBox_GoodDat;
+        private System.Windows.Forms.TextBox textBox_GoodVec;
+        private System.Windows.Forms.Button button_GoodVec;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TextBox textBoxResult;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown HeightNumericUpDown;
         private System.Windows.Forms.NumericUpDown WidthNumericUpDown;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox_NameVec;
         private System.Windows.Forms.Label label5;
     }
 }

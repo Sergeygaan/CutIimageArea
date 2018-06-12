@@ -17,7 +17,7 @@ namespace CutImageArea
                 return;
             }
 
-            textBox1.Text = openFileDialog1.FileName;
+            textBox_GoodDat.Text = openFileDialog1.FileName;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -26,15 +26,15 @@ namespace CutImageArea
             {
                 if (folderDialog.ShowDialog() == DialogResult.OK)
                 {
-                    textBox2.Text = folderDialog.SelectedPath;
+                    textBox_GoodVec.Text = folderDialog.SelectedPath;
                 }
             }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            string GoodDat = "-info " + textBox1.Text + " ";
-            string GoodVec = "-vec " + textBox2.Text + "\\" + textBox3.Text + ".vec ";
+            string GoodDat = "-info " + textBox_GoodDat.Text + " ";
+            string GoodVec = "-vec " + textBox_GoodVec.Text + "\\" + textBox_NameVec.Text + ".vec ";
             string Width = "-w " + WidthNumericUpDown.Value.ToString() + " ";
             string Height = " -h " + HeightNumericUpDown.Value.ToString() + " ";
 
