@@ -1,24 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Windows.Forms;
-using Emgu.CV;
+﻿using Emgu.CV;
 using Emgu.CV.Structure;
+using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
 
 namespace CutImageArea
 {
-    public partial class CutImageArea : Form
+    class EventImage
     {
         /// <summary>
-        /// Адреса всех файлов
+        /// Адрес файла с описанием
         /// </summary>
-        private List<string> _fileLocationList = new List<string>();
-
-        /// <summary>
-        /// Текущее изображение
-        /// </summary>
-        private Image<Bgr, Byte> _currentImage;
+        private string _fileAdress;
 
         /// <summary>
         /// Номер текущего изображения в папке
@@ -26,78 +22,26 @@ namespace CutImageArea
         private int _currentImageIndex = -1;
 
         /// <summary>
-        /// Адрес файла с описанием
+        /// Отображение текущего номера картиник
         /// </summary>
-        private string _fileAdress;
+        private Label _countImage;
 
-        /// <summary>
-        /// Начало выделения области
-        /// </summary>
-        private Point _mouseDownStart = new Point();
-
-        /// <summary>
-        /// Вырезанное изображение
-        /// </summary>
-        private Image<Bgr, Byte> _carvedImage;
-
-        /// <summary>
-        /// Вырезанное изображение
-        /// </summary>
-        private bool _flagButton = false;
-
-        private EventMouse _eventMouse;
-
-        /// <summary>
-        /// Инициализация формы
-        /// </summary>
-        public CutImageArea()
+        public EventImage(Label CountImage)
         {
-            InitializeComponent();
-
-            _eventMouse = new EventMouse();
-        }
-       
-        /// <summary>
-        /// Начало выделения области
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void PictureWindow_MouseDown(object sender, MouseEventArgs e)
-        {
-            _eventMouse.MouseDown(e);
-        }
-
-        /// <summary>
-        /// Метод, для отрисовки примерной области выделения
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void PictureWindow_MouseMove(object sender, MouseEventArgs e)
-        {
-            _eventMouse.MouseMove(e, _currentImage, PictureWindow);
-        }
-
-        /// <summary>
-        /// Метод для, окончания выделения необходимой области области
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void PictureWindow_MouseUp(object sender, MouseEventArgs e)
-        {
-            _carvedImage = _eventMouse.MouseUp(e, _currentImage, PictureWindow);
+            _countImage = CountImage;
         }
 
         /// <summary>
         /// Взятие следующего изображения из папки
         /// </summary>
-        private void NextNumber()
+        public Image<Bgr, Byte> NextNumber(List<string> _fileLocationList, Image<Bgr, Byte> _currentImage, Emgu.CV.UI.ImageBox PictureWindow)
         {
             if (_currentImageIndex < _fileLocationList.Count - 1)
             {
                 _currentImageIndex += 1;
 
                 //вывод текста с номером текущего изображения
-                CountImage.Text = (_currentImageIndex + 1).ToString() + " из " + _fileLocationList.Count.ToString();
+                _countImage.Text = (_currentImageIndex + 1).ToString() + " из " + _fileLocationList.Count.ToString();
 
                 if (File.Exists(_fileLocationList[_currentImageIndex]))
                 {
@@ -110,12 +54,14 @@ namespace CutImageArea
                 _currentImageIndex += 1;
                 MessageBox.Show("Изображения закончились");
             }
+
+            return _currentImage;
         }
 
         /// <summary>
         /// Метод, для сохранения изображения
         /// </summary>
-        private void SaveImage()
+        public void SaveImage(List<string> _fileLocationList, Image<Bgr, Byte> _carvedImage)
         {
             if ((_fileLocationList.Count != 0) && ((_currentImageIndex < _fileLocationList.Count)))
             {
@@ -140,8 +86,7 @@ namespace CutImageArea
         /// Метод, для загрузки всех изображений из папки
         /// </summary>
         /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void LoadImage_Button(object sender, EventArgs e)
+        public void LoadImage(List<string> _fileLocationList)
         {
             FolderBrowserDialog FBD = new FolderBrowserDialog();
             FBD.SelectedPath = Environment.CurrentDirectory;
@@ -160,7 +105,7 @@ namespace CutImageArea
                     }
                 }
 
-                NextNumber();
+                //NextNumber(_fileLocationList);
                 //_currentImage = new Image<Emgu.CV.Structure.Bgr, byte>(_fileLocationList[_currentImageIndex]);
                 //PictureWindow.Image = _currentImage; //Вывод текущего изображения
                 //CountImageText();
@@ -176,25 +121,5 @@ namespace CutImageArea
             }
         }
 
-        /// <summary>
-        /// Метод, для выбора следующего изображения
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void NextImage_Button(object sender, EventArgs e)
-        {
-            NextNumber(); //Следующее изображение
-        }
-
-        /// <summary>
-        /// Метод, для сохранения области выделения нужного фрагмента изображения и перехода на следующее изображение
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void SaveImage_Button(object sender, EventArgs e)
-        {
-            SaveImage();
-            NextNumber();
-        }
     }
 }
