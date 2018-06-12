@@ -4,7 +4,6 @@ using System.Drawing;
 using System.Windows.Forms;
 using Emgu.CV;
 using Emgu.CV.Structure;
-using System.IO;
 
 namespace CutImageArea
 {
@@ -19,16 +18,6 @@ namespace CutImageArea
         /// Текущее изображение
         /// </summary>
         private Image<Bgr, Byte> _currentImage;
-
-        /// <summary>
-        /// Номер текущего изображения в папке
-        /// </summary>
-        private int _currentImageIndex = -1;
-
-        /// <summary>
-        /// Адрес файла с описанием
-        /// </summary>
-        private string _fileAdress;
 
         /// <summary>
         /// Вырезанное изображение

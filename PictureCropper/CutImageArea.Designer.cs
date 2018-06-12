@@ -34,6 +34,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.CountImage = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PictureWindow)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,7 +64,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(470, 63);
+            this.button2.Location = new System.Drawing.Point(470, 45);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(146, 23);
             this.button2.TabIndex = 4;
@@ -72,7 +74,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(470, 92);
+            this.button3.Location = new System.Drawing.Point(470, 74);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(176, 23);
             this.button3.TabIndex = 5;
@@ -88,11 +90,33 @@
             this.CountImage.Size = new System.Drawing.Size(0, 13);
             this.CountImage.TabIndex = 6;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(470, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(313, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "---------------------------------------------------------------------------------" +
+    "---------------------";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(467, 100);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(313, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "---------------------------------------------------------------------------------" +
+    "---------------------";
+            // 
             // CutImageArea
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(780, 466);
+            this.ClientSize = new System.Drawing.Size(666, 466);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.CountImage);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -113,6 +137,8 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label CountImage;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 
