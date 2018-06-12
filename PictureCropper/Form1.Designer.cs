@@ -1,6 +1,6 @@
-﻿namespace CutIimageArea
+﻿namespace CutImageArea
 {
-    partial class CutIimageArea
+    partial class CutImageArea
     {
         /// <summary>
         /// Required designer variable.

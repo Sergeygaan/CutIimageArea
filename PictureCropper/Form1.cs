@@ -6,9 +6,9 @@ using Emgu.CV;
 using Emgu.CV.Structure;
 using System.IO;
 
-namespace CutIimageArea
+namespace CutImageArea
 {
-    public partial class CutIimageArea : Form
+    public partial class CutImageArea : Form
     {
         /// <summary>
         /// Адреса всех файлов
@@ -43,7 +43,7 @@ namespace CutIimageArea
         /// <summary>
         /// Инициализация формы
         /// </summary>
-        public CutIimageArea()
+        public CutImageArea()
         {
             InitializeComponent();
         }
