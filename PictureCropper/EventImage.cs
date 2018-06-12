@@ -105,11 +105,6 @@ namespace CutImageArea
                     }
                 }
 
-                //NextNumber(_fileLocationList);
-                //_currentImage = new Image<Emgu.CV.Structure.Bgr, byte>(_fileLocationList[_currentImageIndex]);
-                //PictureWindow.Image = _currentImage; //Вывод текущего изображения
-                //CountImageText();
-
                 string Path = Folder + "\\ProcessedPhotos\\Good.dat";
 
                 if (File.Exists(Path))

@@ -106,5 +106,11 @@ namespace CutImageArea
             _eventImage.SaveImage(_fileLocationList, _carvedImage);
             _currentImage = _eventImage.NextNumber(_fileLocationList, _currentImage, PictureWindow);
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            CommonFormat CommonFormatForm = new CommonFormat();
+            CommonFormatForm.Show();
+        }
     }
 }
