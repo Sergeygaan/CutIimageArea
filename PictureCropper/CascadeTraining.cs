@@ -44,7 +44,7 @@ namespace CutImageArea
 
         private void button4_Click(object sender, EventArgs e)
         {
-            string Haarcascade = "-data " + textBox_Haarcascade.Text + "\\haarcascade ";
+            string Haarcascade = "-data " + textBox_Haarcascade.Text + " ";
             string GoodVec = "-vec " + textBox_GoodVec.Text + " ";
             string BadDat = "-bg " + textBox_BadDat.Text + " ";
             string NumStages = "-numStages " + numericUpDown_NumStages.Value.ToString() + " ";

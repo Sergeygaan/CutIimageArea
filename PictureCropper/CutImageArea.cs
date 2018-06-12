@@ -104,7 +104,7 @@ namespace CutImageArea
         private void SaveImage_Button(object sender, EventArgs e)
         {
             _eventImage.SaveImage(_fileLocationList, _carvedImage);
-            _currentImage = _eventImage.NextNumber(_fileLocationList, _currentImage, PictureWindow);
+            //_currentImage = _eventImage.NextNumber(_fileLocationList, _currentImage, PictureWindow);
         }
 
         private void button4_Click(object sender, EventArgs e)
