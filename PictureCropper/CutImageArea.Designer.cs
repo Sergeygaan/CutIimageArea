@@ -66,17 +66,17 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(470, 45);
+            this.button2.Location = new System.Drawing.Point(470, 74);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(146, 23);
             this.button2.TabIndex = 4;
-            this.button2.Text = "Пропустить изображение";
+            this.button2.Text = "Следующее изображение";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.NextImage_Button);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(470, 74);
+            this.button3.Location = new System.Drawing.Point(470, 45);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(176, 23);
             this.button3.TabIndex = 5;
