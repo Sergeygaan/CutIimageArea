@@ -115,12 +115,13 @@ namespace CutImageArea
                     Directory.CreateDirectory(Path);
                 }
 
-                Path = Path + _fileLocationList[_currentImageIndex].Substring(_fileLocationList[_currentImageIndex].LastIndexOf("\\"), _fileLocationList[_currentImageIndex].Length - _fileLocationList[_currentImageIndex].LastIndexOf("\\") - 4)
-                    + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + ".bmp";
+                string PathImageName = _fileLocationList[_currentImageIndex].Substring(_fileLocationList[_currentImageIndex].LastIndexOf("\\"), _fileLocationList[_currentImageIndex].Length - _fileLocationList[_currentImageIndex].LastIndexOf("\\") - 4) + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + ".bmp";
+
+                Path = Path + PathImageName;
 
                 _carvedImage.Save(Path);
 
-                File.AppendAllText(_fileAdress, Path + "  1  " + "0 0 " + _carvedImage.Width + " " + _carvedImage.Height + "\r\n");
+                File.AppendAllText(_fileAdress, PathImageName + "  1  " + "0 0 " + _carvedImage.Width + " " + _carvedImage.Height + "\r\n");
             }
         }
 
