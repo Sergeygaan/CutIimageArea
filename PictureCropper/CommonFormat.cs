@@ -38,11 +38,11 @@ namespace CutImageArea
         /// <param name="e"></param>
         private void button_GoodVec_Click(object sender, EventArgs e)
         {
-            using (var folderDialog = new FolderBrowserDialog())
+            using (var FolderDialog = new FolderBrowserDialog())
             {
-                if (folderDialog.ShowDialog() == DialogResult.OK)
+                if (FolderDialog.ShowDialog() == DialogResult.OK)
                 {
-                    textBox_GoodVec.Text = folderDialog.SelectedPath;
+                    textBox_GoodVec.Text = FolderDialog.SelectedPath;
                 }
             }
         }

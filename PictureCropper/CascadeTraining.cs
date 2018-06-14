@@ -23,11 +23,11 @@ namespace CutImageArea
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            using (var folderDialog = new FolderBrowserDialog())
+            using (var FolderDialog = new FolderBrowserDialog())
             {
-                if (folderDialog.ShowDialog() == DialogResult.OK)
+                if (FolderDialog.ShowDialog() == DialogResult.OK)
                 {
-                    textBox_Haarcascade.Text = folderDialog.SelectedPath;
+                    textBox_Haarcascade.Text = FolderDialog.SelectedPath;
                 }
             }
 
@@ -85,6 +85,5 @@ namespace CutImageArea
 
             textBoxResult.Text = Haarcascade + GoodVec + BadDat + NumStages + Minhitrate + MaxFalseAlarmRate + NumPos + NumNeg + Width + Height + Mode + Precalc;
         }
-
     }
 }

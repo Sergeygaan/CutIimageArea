@@ -22,9 +22,9 @@ namespace CutImageArea
         /// Начало выделения области
         /// </summary>
         /// <param name="e"></param>
-        public void MouseDown(MouseEventArgs e)
+        public void MouseDown(MouseEventArgs events)
         {
-            _mouseDownStart = new System.Drawing.Point(e.X, e.Y);
+            _mouseDownStart = new System.Drawing.Point(events.X, events.Y);
             _flagButton = true;
         }
 
@@ -32,15 +32,15 @@ namespace CutImageArea
         /// Метод, для отрисовки примерной области выделения
         /// </summary>
         /// <param name="e"></param>
-        public void MouseMove(MouseEventArgs e, Image<Bgr, Byte> _currentImage, Emgu.CV.UI.ImageBox PictureWindow)
+        public void MouseMove(MouseEventArgs events, Image<Bgr, Byte> currentImage, Emgu.CV.UI.ImageBox pictureWindow)
         {
-            if ((_currentImage != null) && (_flagButton))
+            if ((currentImage != null) && (_flagButton))
             {
-                Rectangle Rec = WorkMouse(e, _currentImage, PictureWindow);
+                Rectangle Rec = WorkMouse(events, currentImage, pictureWindow);
 
-                Image<Bgr, Byte> Sel = _currentImage.Clone();
+                Image<Bgr, Byte> Sel = currentImage.Clone();
                 Sel.Draw(Rec, new Bgr(1, 240, 1), 2);
-                PictureWindow.Image = Sel;
+                pictureWindow.Image = Sel;
 
                 Sel.Dispose();
             }
@@ -50,22 +50,22 @@ namespace CutImageArea
         /// Метод для, окончания выделения необходимой области области
         /// </summary>
         /// <param name="e"></param>
-        public Image<Bgr, Byte> MouseUp(MouseEventArgs e, Image<Bgr, Byte> _currentImage, Emgu.CV.UI.ImageBox PictureWindow)
+        public Image<Bgr, Byte> MouseUp(MouseEventArgs events, Image<Bgr, Byte> currentImage, Emgu.CV.UI.ImageBox pictureWindow)
         {
             Image<Bgr, Byte> _carvedImage = null;
             _flagButton = false;
 
-            if (_currentImage != null)
+            if (currentImage != null)
             {
-                Rectangle Rec = WorkMouse(e, _currentImage, PictureWindow);
+                Rectangle Rec = WorkMouse(events, currentImage, pictureWindow);
 
-                Image<Bgr, Byte> Sel = _currentImage.Clone();
+                Image<Bgr, Byte> Sel = currentImage.Clone();
                 Sel.Draw(Rec, new Bgr(0, 0, 0), 2);
-                PictureWindow.Image = Sel;
+                pictureWindow.Image = Sel;
 
-                _currentImage.ROI = Rec;
-                _carvedImage = _currentImage.Clone();
-                CvInvoke.cvResetImageROI(_currentImage);
+                currentImage.ROI = Rec;
+                _carvedImage = currentImage.Clone();
+                CvInvoke.cvResetImageROI(currentImage);
 
                 Sel.Dispose();
 
@@ -77,19 +77,19 @@ namespace CutImageArea
         /// <summary>
         /// Метод, объединяющий общий код
         /// </summary>
-        private Rectangle WorkMouse(MouseEventArgs e, Image<Bgr, Byte> _currentImage, Emgu.CV.UI.ImageBox PictureWindow)
+        private Rectangle WorkMouse(MouseEventArgs events, Image<Bgr, Byte> currentImage, Emgu.CV.UI.ImageBox pictureWindow)
         {
-            Point Select = new Point(Math.Min(e.X, _mouseDownStart.X), Math.Min(e.Y, _mouseDownStart.Y));
+            Point Select = new Point(Math.Min(events.X, _mouseDownStart.X), Math.Min(events.Y, _mouseDownStart.Y));
             Point Size = new Point(0, 0);
-            Size.X = Math.Abs(e.X - _mouseDownStart.X);
-            Size.Y = Math.Abs(e.Y - _mouseDownStart.Y);
-            double sx = _currentImage.Width / (double)PictureWindow.Width;
-            double sy = _currentImage.Height / (double)PictureWindow.Height;
+            Size.X = Math.Abs(events.X - _mouseDownStart.X);
+            Size.Y = Math.Abs(events.Y - _mouseDownStart.Y);
+            double sx = currentImage.Width / (double)pictureWindow.Width;
+            double sy = currentImage.Height / (double)pictureWindow.Height;
             Rectangle Rec = new Rectangle((int)(Select.X * sx), (int)(Select.Y * sy), (int)(Size.X * sx), (int)(Size.Y * sy));
 
-            Image<Bgr, Byte> Sel = _currentImage.Clone();
+            Image<Bgr, Byte> Sel = currentImage.Clone();
             Sel.Draw(Rec, new Bgr(0, 0, 0), 2);
-            PictureWindow.Image = Sel;
+            pictureWindow.Image = Sel;
 
             return Rec;
         }

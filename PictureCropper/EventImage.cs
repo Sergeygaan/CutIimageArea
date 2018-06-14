@@ -37,19 +37,19 @@ namespace CutImageArea
         /// <summary>
         /// Взятие следующего изображения из папки
         /// </summary>
-        public Image<Bgr, Byte> NextNumber(List<string> _fileLocationList, Image<Bgr, Byte> _currentImage, Emgu.CV.UI.ImageBox PictureWindow)
+        public Image<Bgr, Byte> NextNumber(List<string> fileLocationList, Image<Bgr, Byte> currentImage, Emgu.CV.UI.ImageBox pictureWindow)
         {
-            if (_currentImageIndex < _fileLocationList.Count - 1)
+            if (_currentImageIndex < fileLocationList.Count - 1)
             {
                 _currentImageIndex += 1;
 
                 //вывод текста с номером текущего изображения
-                _countImage.Text = (_currentImageIndex + 1).ToString() + " из " + _fileLocationList.Count.ToString();
+                _countImage.Text = (_currentImageIndex + 1).ToString() + " из " + fileLocationList.Count.ToString();
 
-                if (File.Exists(_fileLocationList[_currentImageIndex]))
+                if (File.Exists(fileLocationList[_currentImageIndex]))
                 {
-                    _currentImage = new Image<Emgu.CV.Structure.Bgr, byte>(_fileLocationList[_currentImageIndex]);
-                    PictureWindow.Image = _currentImage;
+                    currentImage = new Image<Emgu.CV.Structure.Bgr, byte>(fileLocationList[_currentImageIndex]);
+                    pictureWindow.Image = currentImage;
                 }
             }
             else
@@ -58,30 +58,30 @@ namespace CutImageArea
                 MessageBox.Show("Изображения закончились");
             }
 
-            return _currentImage;
+            return currentImage;
         }
 
         /// <summary>
         /// Метод, для сохранения изображения
         /// </summary>
-        public void SaveImage(List<string> _fileLocationList, Image<Bgr, Byte> _carvedImage)
+        public void SaveImage(List<string> fileLocationList, Image<Bgr, Byte> carvedImage)
         {
-            if ((_fileLocationList.Count != 0) && ((_currentImageIndex < _fileLocationList.Count)))
+            if ((fileLocationList.Count != 0) && ((_currentImageIndex < fileLocationList.Count)))
             {
-                string Path = _fileLocationList[_currentImageIndex].Substring(0, _fileLocationList[_currentImageIndex].LastIndexOf("\\") + 1) + "ProcessedPhotos";
+                string Path = fileLocationList[_currentImageIndex].Substring(0, fileLocationList[_currentImageIndex].LastIndexOf("\\") + 1) + "ProcessedPhotos";
 
                 if (!Directory.Exists(Path))
                 {
                     Directory.CreateDirectory(Path);
                 }
 
-                string PathImageName = _fileLocationList[_currentImageIndex].Substring(_fileLocationList[_currentImageIndex].LastIndexOf("\\"), _fileLocationList[_currentImageIndex].Length - _fileLocationList[_currentImageIndex].LastIndexOf("\\") - 4) + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + ".bmp";
+                string PathImageName = fileLocationList[_currentImageIndex].Substring(fileLocationList[_currentImageIndex].LastIndexOf("\\"), fileLocationList[_currentImageIndex].Length - fileLocationList[_currentImageIndex].LastIndexOf("\\") - 4) + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + ".bmp";
 
                 Path = Path + PathImageName;
 
-                _carvedImage.Save(Path);
+                carvedImage.Save(Path);
 
-                File.AppendAllText(_fileAdress, PathImageName + "  1  " + "0 0 " + _carvedImage.Width + " " + _carvedImage.Height + "\r\n");
+                File.AppendAllText(_fileAdress, PathImageName + "  1  " + "0 0 " + carvedImage.Width + " " + carvedImage.Height + "\r\n");
             }
         }
 
@@ -89,7 +89,7 @@ namespace CutImageArea
         /// Метод, для загрузки всех изображений из папки
         /// </summary>
         /// <param name="sender"></param>
-        public void LoadImage(List<string> _fileLocationList)
+        public void LoadImage(List<string> fileLocationList)
         {
             FolderBrowserDialog FBD = new FolderBrowserDialog();
             FBD.SelectedPath = Environment.CurrentDirectory;
@@ -104,7 +104,7 @@ namespace CutImageArea
                 {
                     if ((FI[Index].Extension == ".jpg") || (FI[Index].Extension == ".jpeg") || (FI[Index].Extension == ".bmp") || (FI[Index].Extension == ".png"))
                     {
-                        _fileLocationList.Add(FI[Index].FullName);
+                        fileLocationList.Add(FI[Index].FullName);
                     }
                 }
 
