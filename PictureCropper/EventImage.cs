@@ -76,7 +76,7 @@ namespace CutImageArea
         {
             if ((fileLocationList.Count != 0) && ((_currentImageIndex < fileLocationList.Count)))
             {
-                string Path = fileLocationList[_currentImageIndex].Substring(0, fileLocationList[_currentImageIndex].LastIndexOf("\\") + 1) + "ProcessedPhotos";
+                string Path = fileLocationList[_currentImageIndex].Substring(0, fileLocationList[_currentImageIndex].LastIndexOf("\\") + 1) + "Good";
 
                 if (!Directory.Exists(Path))
                 {
@@ -116,7 +116,7 @@ namespace CutImageArea
                     }
                 }
 
-                string Path = Folder + "\\ProcessedPhotos\\Good.dat";
+                string Path = Folder + "\\Good\\Good.dat";
 
                 if (File.Exists(Path))
                 {
