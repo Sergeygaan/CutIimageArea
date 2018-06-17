@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace CutImageArea
@@ -64,6 +65,21 @@ namespace CutImageArea
         }
 
         /// <summary>
+        /// Путь до файла выполняюжего обучение каскада
+        /// </summary>
+        /// <param name="sender"> Объект, который вызвал событие.</param>
+        /// <param name="events">Класс, выполняющий передачу событий.</param>
+        private void Opencv_Traincascade_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            textBoxResult.Text = openFileDialog1.FileName;
+        }
+
+        /// <summary>
         /// Метод формирования итоговой строки для передачи в консоль
         /// </summary>
         /// <param name="sender"> Объект, который вызвал событие.</param>
@@ -84,6 +100,17 @@ namespace CutImageArea
             string Precalc = "-precalcValBufSize " + numericUpDown_Precalc.Value.ToString() + " -precalcIdxBufSize " + numericUpDown_Precalc.Value.ToString();
 
             textBoxResult.Text = Haarcascade + GoodVec + BadDat + NumStages + Minhitrate + MaxFalseAlarmRate + NumPos + NumNeg + Width + Height + Mode + Precalc;
+
+            Process Process_Opencv_Traincascade = new Process();
+            ProcessStartInfo CommandLine = new ProcessStartInfo();
+
+            //Указываем, где лежит exe, и определяем, с какими параметрами приложение будет запускаться
+            CommandLine.FileName = "C:\\Users\\Sergey\\Desktop\\Vision\\CutIimageArea\\Data\\OpenCV\\opencv_traincascade.exe";
+            CommandLine.Arguments = textBoxResult.Text;
+
+            // Запускаем Алармы
+            Process_Opencv_Traincascade.StartInfo = CommandLine;
+            Process_Opencv_Traincascade.Start();
         }
     }
 }

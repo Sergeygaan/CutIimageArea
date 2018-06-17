@@ -57,6 +57,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.numericUpDown_Precalc = new System.Windows.Forms.NumericUpDown();
             this.label12 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.HeightNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WidthNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_NumStages)).BeginInit();
@@ -143,17 +144,17 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(249, 455);
+            this.button4.Location = new System.Drawing.Point(244, 526);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(136, 26);
             this.button4.TabIndex = 11;
-            this.button4.Text = "Формировать строку";
+            this.button4.Text = "Начать обучение";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // textBoxResult
             // 
-            this.textBoxResult.Location = new System.Drawing.Point(11, 500);
+            this.textBoxResult.Location = new System.Drawing.Point(7, 500);
             this.textBoxResult.Name = "textBoxResult";
             this.textBoxResult.Size = new System.Drawing.Size(592, 20);
             this.textBoxResult.TabIndex = 12;
@@ -161,12 +162,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 484);
+            this.label4.Location = new System.Drawing.Point(9, 481);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(537, 13);
+            this.label4.Size = new System.Drawing.Size(421, 13);
             this.label4.TabIndex = 13;
-            this.label4.Text = "Данную строку необходимо передать в файл \"opencv_traincascade.exe\" в качестве вхо" +
-    "дного параметра\r\n";
+            this.label4.Text = "Путь до файла \"opencv_traincascade.exe\", который выполняет обучение каскада.";
             // 
             // HeightNumericUpDown
             // 
@@ -386,11 +386,22 @@
             this.label12.TabIndex = 32;
             this.label12.Text = "Выделяемая под процесс память";
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(435, 477);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(26, 20);
+            this.button2.TabIndex = 34;
+            this.button2.Text = "...";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Opencv_Traincascade_Click);
+            // 
             // CascadeTraining
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(614, 525);
+            this.ClientSize = new System.Drawing.Size(628, 556);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.numericUpDown_Precalc);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.numericUpDown_NumNeg);
@@ -465,5 +476,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.NumericUpDown numericUpDown_Precalc;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button button2;
     }
 }
