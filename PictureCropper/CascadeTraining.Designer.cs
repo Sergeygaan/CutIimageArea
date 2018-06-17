@@ -214,9 +214,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(12, 101);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(326, 13);
+            this.label6.Size = new System.Drawing.Size(323, 13);
             this.label6.TabIndex = 19;
-            this.label6.Text = "Путь до файла описания положительных изображений Bad.dat";
+            this.label6.Text = "Путь до файла описания отрицательных изображений Bad.dat";
             // 
             // label7
             // 
