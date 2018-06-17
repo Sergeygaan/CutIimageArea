@@ -44,6 +44,7 @@
             this.WidthNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.textBox_NameVec = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.HeightNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WidthNumericUpDown)).BeginInit();
             this.SuspendLayout();
@@ -125,17 +126,17 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(258, 215);
+            this.button4.Location = new System.Drawing.Point(234, 292);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(136, 26);
+            this.button4.Size = new System.Drawing.Size(165, 26);
             this.button4.TabIndex = 11;
-            this.button4.Text = "Формировать строку";
+            this.button4.Text = "Фармировать файл .vec";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button_Format_Click);
             // 
             // textBoxResult
             // 
-            this.textBoxResult.Location = new System.Drawing.Point(12, 260);
+            this.textBoxResult.Location = new System.Drawing.Point(15, 266);
             this.textBoxResult.Name = "textBoxResult";
             this.textBoxResult.Size = new System.Drawing.Size(592, 20);
             this.textBoxResult.TabIndex = 12;
@@ -145,10 +146,10 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(12, 244);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(544, 13);
+            this.label4.Size = new System.Drawing.Size(543, 13);
             this.label4.TabIndex = 13;
-            this.label4.Text = "Данную строку необходимо передать в файл \"opencv_createsamples.exe\" в качестве вх" +
-    "одного параметра\r\n";
+            this.label4.Text = "Путь до файла \"opencv_createsamples.exe\" для приведение положительных изображений" +
+    " к единому виду";
             // 
             // HeightNumericUpDown
             // 
@@ -191,11 +192,22 @@
             this.label5.Text = "Имя файла файл, в котором будет сохранена приведённая к общему формату база полож" +
     "ительных изображений";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(559, 240);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(26, 20);
+            this.button1.TabIndex = 19;
+            this.button1.Text = "...";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.PathButtom_Click);
+            // 
             // CommonFormat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(609, 287);
+            this.ClientSize = new System.Drawing.Size(624, 327);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox_NameVec);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.WidthNumericUpDown);
@@ -238,5 +250,6 @@
         private System.Windows.Forms.NumericUpDown WidthNumericUpDown;
         private System.Windows.Forms.TextBox textBox_NameVec;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace CutImageArea
@@ -47,6 +48,16 @@ namespace CutImageArea
             }
         }
 
+        private void PathButtom_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            textBoxResult.Text = openFileDialog1.FileName;
+        }
+
         /// <summary>
         /// Метод формирования итоговой строки для передачи в консоль
         /// </summary>
@@ -59,7 +70,18 @@ namespace CutImageArea
             string Width = "-w " + WidthNumericUpDown.Value.ToString() + " ";
             string Height = " -h " + HeightNumericUpDown.Value.ToString() + " ";
 
-            textBoxResult.Text = GoodDat + GoodVec + Width + Height;
+            string TextResult = GoodDat + GoodVec + Width + Height;
+
+            Process Process_Opencv_Traincascade = new Process();
+            ProcessStartInfo CommandLine = new ProcessStartInfo();
+
+            //Указываем, где лежит exe, и определяем, с какими параметрами приложение будет запускаться
+            CommandLine.FileName = textBoxResult.Text;
+            CommandLine.Arguments = TextResult;
+
+            // Запускаем Алармы
+            Process_Opencv_Traincascade.StartInfo = CommandLine;
+            Process_Opencv_Traincascade.Start();
         }
     }
 }

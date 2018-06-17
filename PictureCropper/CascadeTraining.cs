@@ -99,14 +99,14 @@ namespace CutImageArea
             string Mode = "-mode ALL ";
             string Precalc = "-precalcValBufSize " + numericUpDown_Precalc.Value.ToString() + " -precalcIdxBufSize " + numericUpDown_Precalc.Value.ToString();
 
-            textBoxResult.Text = Haarcascade + GoodVec + BadDat + NumStages + Minhitrate + MaxFalseAlarmRate + NumPos + NumNeg + Width + Height + Mode + Precalc;
+            string TextResult = Haarcascade + GoodVec + BadDat + NumStages + Minhitrate + MaxFalseAlarmRate + NumPos + NumNeg + Width + Height + Mode + Precalc;
 
             Process Process_Opencv_Traincascade = new Process();
             ProcessStartInfo CommandLine = new ProcessStartInfo();
 
             //Указываем, где лежит exe, и определяем, с какими параметрами приложение будет запускаться
-            CommandLine.FileName = "C:\\Users\\Sergey\\Desktop\\Vision\\CutIimageArea\\Data\\OpenCV\\opencv_traincascade.exe";
-            CommandLine.Arguments = textBoxResult.Text;
+            CommandLine.FileName = textBoxResult.Text;
+            CommandLine.Arguments = TextResult;
 
             // Запускаем Алармы
             Process_Opencv_Traincascade.StartInfo = CommandLine;
