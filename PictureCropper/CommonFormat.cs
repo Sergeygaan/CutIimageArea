@@ -48,6 +48,11 @@ namespace CutImageArea
             }
         }
 
+        /// <summary>
+        /// Путь, до файла выполняюжего приведение положительных изображений к единому виду
+        /// </summary>
+        /// <param name="sender"> Объект, который вызвал событие.</param>
+        /// <param name="events"> Cодержащих данные событий.</param>
         private void PathButtom_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() != DialogResult.OK)
