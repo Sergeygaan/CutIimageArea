@@ -6,6 +6,9 @@ using System.Windows.Forms;
 
 namespace CutImageArea
 {
+    /// <summary>
+    /// Класс, выполняющий различные операции с событиями мыши
+    /// </summary>
     class EventMouse
     {
         /// <summary>
@@ -21,7 +24,7 @@ namespace CutImageArea
         /// <summary>
         /// Начало выделения области
         /// </summary>
-        /// <param name="e"></param>
+        /// <param name="events"> События маши.</param>
         public void MouseDown(MouseEventArgs events)
         {
             _mouseDownStart = new System.Drawing.Point(events.X, events.Y);
@@ -31,7 +34,9 @@ namespace CutImageArea
         /// <summary>
         /// Метод, для отрисовки примерной области выделения
         /// </summary>
-        /// <param name="e"></param>
+        /// <param name="events"> События маши.</param>
+        /// <param name="currentImage"> Текущее изображение.</param>
+        /// <param name="pictureWindow"> Форма для вывода изображения.</param>
         public void MouseMove(MouseEventArgs events, Image<Bgr, Byte> currentImage, Emgu.CV.UI.ImageBox pictureWindow)
         {
             if ((currentImage != null) && (_flagButton))
@@ -49,7 +54,9 @@ namespace CutImageArea
         /// <summary>
         /// Метод для, окончания выделения необходимой области области
         /// </summary>
-        /// <param name="e"></param>
+        /// <param name="events"> События маши.</param>
+        /// <param name="currentImage"> Текущее изображение.</param>
+        /// <param name="pictureWindow"> Форма для вывода изображения.</param>
         public Image<Bgr, Byte> MouseUp(MouseEventArgs events, Image<Bgr, Byte> currentImage, Emgu.CV.UI.ImageBox pictureWindow)
         {
             Image<Bgr, Byte> _carvedImage = null;
@@ -77,6 +84,9 @@ namespace CutImageArea
         /// <summary>
         /// Метод, объединяющий общий код
         /// </summary>
+        /// <param name="events"> События маши.</param>
+        /// <param name="currentImage"> Текущее изображение.</param>
+        /// <param name="pictureWindow"> Форма для вывода изображения.</param>
         private Rectangle WorkMouse(MouseEventArgs events, Image<Bgr, Byte> currentImage, Emgu.CV.UI.ImageBox pictureWindow)
         {
             Point Select = new Point(Math.Min(events.X, _mouseDownStart.X), Math.Min(events.Y, _mouseDownStart.Y));

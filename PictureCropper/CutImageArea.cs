@@ -6,6 +6,9 @@ using Emgu.CV.Structure;
 
 namespace CutImageArea
 {
+    /// <summary>
+    /// Главный класс программы
+    /// </summary>
     public partial class CutImageArea : Form
     {
         /// <summary>
@@ -43,43 +46,43 @@ namespace CutImageArea
             _eventMouse = new EventMouse();
             _eventImage = new EventImage(CountImage);
         }
-       
+
         /// <summary>
         /// Начало выделения области
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void PictureWindow_MouseDown(object sender, MouseEventArgs e)
+        /// <param name="sender"> Объект, который вызвал событие.</param>
+        /// <param name="eventsMouse"> Cодержащих данные событий.</param>
+        private void PictureWindow_MouseDown(object sender, MouseEventArgs eventsMouse)
         {
-            _eventMouse.MouseDown(e);
+            _eventMouse.MouseDown(eventsMouse);
         }
 
         /// <summary>
         /// Метод, для отрисовки примерной области выделения
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void PictureWindow_MouseMove(object sender, MouseEventArgs e)
+        /// <param name="sender"> Объект, который вызвал событие.</param>
+        /// <param name="eventsMouse"> Cодержащих данные событий.</param>
+        private void PictureWindow_MouseMove(object sender, MouseEventArgs eventsMouse)
         {
-            _eventMouse.MouseMove(e, _currentImage, PictureWindow);
+            _eventMouse.MouseMove(eventsMouse, _currentImage, PictureWindow);
         }
 
         /// <summary>
         /// Метод для, окончания выделения необходимой области области
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void PictureWindow_MouseUp(object sender, MouseEventArgs e)
+        /// <param name="sender"> Объект, который вызвал событие.</param>
+        /// <param name="eventsMouse"> Cодержащих данные событий.</param>
+        private void PictureWindow_MouseUp(object sender, MouseEventArgs eventsMouse)
         {
-            _carvedImage = _eventMouse.MouseUp(e, _currentImage, PictureWindow);
+            _carvedImage = _eventMouse.MouseUp(eventsMouse, _currentImage, PictureWindow);
         }
 
         /// <summary>
         /// Метод, для загрузки всех изображений из папки
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void LoadImage_Button(object sender, EventArgs e)
+        /// <param name="sender"> Объект, который вызвал событие.</param>
+        /// <param name="events"> Cодержащих данные событий.</param>
+        private void LoadImage_Button(object sender, EventArgs events)
         {
             _eventImage.LoadImage(_fileLocationList);
             _currentImage = _eventImage.NextNumber(_fileLocationList, _currentImage, PictureWindow);
@@ -88,9 +91,9 @@ namespace CutImageArea
         /// <summary>
         /// Метод, для выбора следующего изображения
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void NextImage_Button(object sender, EventArgs e)
+        /// <param name="sender"> Объект, который вызвал событие.</param>
+        /// <param name="events"> Cодержащих данные событий.</param>
+        private void NextImage_Button(object sender, EventArgs events)
         {
             _currentImage = _eventImage.NextNumber(_fileLocationList, _currentImage, PictureWindow);
         }
@@ -98,9 +101,9 @@ namespace CutImageArea
         /// <summary>
         /// Метод, для сохранения области выделения нужного фрагмента изображения и перехода на следующее изображение
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void SaveImage_Button(object sender, EventArgs e)
+        /// <param name="sender"> Объект, который вызвал событие.</param>
+        /// <param name="events"> Cодержащих данные событий.</param>
+        private void SaveImage_Button(object sender, EventArgs events)
         {
             _eventImage.SaveImage(_fileLocationList, _carvedImage);
             //_currentImage = _eventImage.NextNumber(_fileLocationList, _currentImage, PictureWindow);
@@ -109,9 +112,9 @@ namespace CutImageArea
         /// <summary>
         /// Метод, открытия формы формирование положительных изображений к единому формату
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Click_OpenCommonFormat(object sender, EventArgs e)
+        /// <param name="sender"> Объект, который вызвал событие.</param>
+        /// <param name="events"> Cодержащих данные событий.</param>
+        private void Click_OpenCommonFormat(object sender, EventArgs events)
         {
             CommonFormat CommonFormatForm = new CommonFormat();
             CommonFormatForm.Show();
@@ -120,9 +123,9 @@ namespace CutImageArea
         /// <summary>
         /// Метод, открытия формы обучения каскада Хаара
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Haarcascade_Click(object sender, EventArgs e)
+        /// <param name="sender"> Объект, который вызвал событие.</param>
+        /// <param name="events"> Cодержащих данные событий.</param>
+        private void Haarcascade_Click(object sender, EventArgs events)
         {
             CascadeTraining CascadeTrainingForm = new CascadeTraining();
             CascadeTrainingForm.Show();

@@ -19,9 +19,9 @@ namespace CutImageArea
         /// <summary>
         /// Адрес папки с куда класть готовый каскад после обучения
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void button1_Click(object sender, EventArgs e)
+        /// <param name="sender"> Объект, который вызвал событие.</param>
+        /// <param name="events"> Cодержащих данные событий.</param>
+        private void button1_Click(object sender, EventArgs events)
         {
             using (var FolderDialog = new FolderBrowserDialog())
             {
@@ -36,9 +36,9 @@ namespace CutImageArea
         /// <summary>
         /// Путь до файла описания положительных изображений .vec
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void button2_Click(object sender, EventArgs e)
+        /// <param name="sender"> Объект, который вызвал событие.</param>
+        /// <param name="events">Класс, выполняющий передачу событий.</param>
+        private void button2_Click(object sender, EventArgs events)
         {
             if (openFileDialog1.ShowDialog() != DialogResult.OK)
             {
@@ -51,9 +51,9 @@ namespace CutImageArea
         /// <summary>
         /// Путь до файла описания положительных изображений Bad.dat
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void BadDat_Click(object sender, EventArgs e)
+        /// <param name="sender"> Объект, который вызвал событие.</param>
+        /// <param name="events">Класс, выполняющий передачу событий.</param>
+        private void BadDat_Click(object sender, EventArgs events)
         {
             if (openFileDialog1.ShowDialog() != DialogResult.OK)
             {
@@ -66,9 +66,9 @@ namespace CutImageArea
         /// <summary>
         /// Метод формирования итоговой строки для передачи в консоль
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void button4_Click(object sender, EventArgs e)
+        /// <param name="sender"> Объект, который вызвал событие.</param>
+        /// <param name="events">Класс, выполняющий передачу событий.</param>
+        private void button4_Click(object sender, EventArgs events)
         {
             string Haarcascade = "-data " + textBox_Haarcascade.Text + " ";
             string GoodVec = "-vec " + textBox_GoodVec.Text + " ";

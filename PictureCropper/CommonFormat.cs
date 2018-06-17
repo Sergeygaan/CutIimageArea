@@ -19,9 +19,9 @@ namespace CutImageArea
         /// <summary>
         /// Путь до файла описания положительных изображений Good.dat
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void button_GoodDat_Click(object sender, EventArgs e)
+        /// <param name="sender"> Объект, который вызвал событие.</param>
+        /// <param name="events"> Cодержащих данные событий.</param>
+        private void button_GoodDat_Click(object sender, EventArgs events)
         {
             if (openFileDialog1.ShowDialog() != DialogResult.OK)
             {
@@ -34,9 +34,9 @@ namespace CutImageArea
         /// <summary>
         /// Путь, куда сохранять выходной файл с приведенными к общему формату положительными изображениями
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void button_GoodVec_Click(object sender, EventArgs e)
+        /// <param name="sender"> Объект, который вызвал событие.</param>
+        /// <param name="events"> Cодержащих данные событий.</param>
+        private void button_GoodVec_Click(object sender, EventArgs events)
         {
             using (var FolderDialog = new FolderBrowserDialog())
             {
@@ -50,9 +50,9 @@ namespace CutImageArea
         /// <summary>
         /// Метод формирования итоговой строки для передачи в консоль
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void button_Format_Click(object sender, EventArgs e)
+        /// <param name="sender"> Объект, который вызвал событие.</param>
+        /// <param name="events"> Cодержащих данные событий.</param>
+        private void button_Format_Click(object sender, EventArgs events)
         {
             string GoodDat = "-info " + textBox_GoodDat.Text + " ";
             string GoodVec = "-vec " + textBox_GoodVec.Text + "\\" + textBox_NameVec.Text + ".vec ";

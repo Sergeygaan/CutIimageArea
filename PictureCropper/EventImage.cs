@@ -9,6 +9,9 @@ using System.Windows.Forms;
 
 namespace CutImageArea
 {
+    /// <summary>
+    /// Класс, для обработки изображений
+    /// </summary>
     class EventImage
     {
         /// <summary>
@@ -37,6 +40,9 @@ namespace CutImageArea
         /// <summary>
         /// Взятие следующего изображения из папки
         /// </summary>
+        /// <param name="fileLocationList"> Список загруженных изображений.</param>
+        /// <param name="currentImage"> Текущее изображение.</param> 
+        /// <param name="pictureWindow"> Форма для вывода изображения.</param>
         public Image<Bgr, Byte> NextNumber(List<string> fileLocationList, Image<Bgr, Byte> currentImage, Emgu.CV.UI.ImageBox pictureWindow)
         {
             if (_currentImageIndex < fileLocationList.Count - 1)
@@ -64,6 +70,8 @@ namespace CutImageArea
         /// <summary>
         /// Метод, для сохранения изображения
         /// </summary>
+        /// <param name="fileLocationList"> Список загруженных изображений.</param>
+        /// <param name="carvedImage"> Вырезанная часть изображения.</param> 
         public void SaveImage(List<string> fileLocationList, Image<Bgr, Byte> carvedImage)
         {
             if ((fileLocationList.Count != 0) && ((_currentImageIndex < fileLocationList.Count)))
@@ -88,7 +96,7 @@ namespace CutImageArea
         /// <summary>
         /// Метод, для загрузки всех изображений из папки
         /// </summary>
-        /// <param name="sender"></param>
+        /// <param name="fileLocationList"> Список загруженных изображений.</param>
         public void LoadImage(List<string> fileLocationList)
         {
             FolderBrowserDialog FBD = new FolderBrowserDialog();
