@@ -77,16 +77,23 @@ namespace CutImageArea
 
             string TextResult = GoodDat + GoodVec + Width + Height;
 
-            Process Process_Opencv_Traincascade = new Process();
-            ProcessStartInfo CommandLine = new ProcessStartInfo();
+            try
+            {
+                Process Process_Opencv_Traincascade = new Process();
+                ProcessStartInfo CommandLine = new ProcessStartInfo();
 
-            //Указываем, где лежит exe, и определяем, с какими параметрами приложение будет запускаться
-            CommandLine.FileName = textBoxResult.Text;
-            CommandLine.Arguments = TextResult;
+                //Указываем, где лежит exe, и определяем, с какими параметрами приложение будет запускаться
+                CommandLine.FileName = textBoxResult.Text;
+                CommandLine.Arguments = TextResult;
 
-            // Запускаем Алармы
-            Process_Opencv_Traincascade.StartInfo = CommandLine;
-            Process_Opencv_Traincascade.Start();
+                // Запускаем Алармы
+                Process_Opencv_Traincascade.StartInfo = CommandLine;
+                Process_Opencv_Traincascade.Start();
+            }
+            catch (Exception Error)
+            {
+                MessageBox.Show(Error.Message);
+            }
         }
     }
 }
