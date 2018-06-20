@@ -22,7 +22,7 @@ namespace CutImageArea
         /// </summary>
         /// <param name="sender"> Объект, который вызвал событие.</param>
         /// <param name="events"> Cодержащих данные событий.</param>
-        private void button_GoodDat_Click(object sender, EventArgs events)
+        private void Button_GoodDat_Click(object sender, EventArgs events)
         {
             if (openFileDialog1.ShowDialog() != DialogResult.OK)
             {
@@ -37,13 +37,13 @@ namespace CutImageArea
         /// </summary>
         /// <param name="sender"> Объект, который вызвал событие.</param>
         /// <param name="events"> Cодержащих данные событий.</param>
-        private void button_GoodVec_Click(object sender, EventArgs events)
+        private void Button_GoodVec_Click(object sender, EventArgs events)
         {
-            using (var FolderDialog = new FolderBrowserDialog())
+            using (var folderDialog = new FolderBrowserDialog())
             {
-                if (FolderDialog.ShowDialog() == DialogResult.OK)
+                if (folderDialog.ShowDialog() == DialogResult.OK)
                 {
-                    textBox_GoodVec.Text = FolderDialog.SelectedPath;
+                    textBox_GoodVec.Text = folderDialog.SelectedPath;
                 }
             }
         }
@@ -68,31 +68,31 @@ namespace CutImageArea
         /// </summary>
         /// <param name="sender"> Объект, который вызвал событие.</param>
         /// <param name="events"> Cодержащих данные событий.</param>
-        private void button_Format_Click(object sender, EventArgs events)
+        private void Button_Format_Click(object sender, EventArgs events)
         {
-            string GoodDat = "-info " + textBox_GoodDat.Text + " ";
-            string GoodVec = "-vec " + textBox_GoodVec.Text + "\\" + textBox_NameVec.Text + ".vec ";
-            string Width = "-w " + WidthNumericUpDown.Value.ToString() + " ";
-            string Height = " -h " + HeightNumericUpDown.Value.ToString() + " ";
+            string goodDat = "-info " + textBox_GoodDat.Text + " ";
+            string goodVec = "-vec " + textBox_GoodVec.Text + "\\" + textBox_NameVec.Text + ".vec ";
+            string width = "-w " + WidthNumericUpDown.Value.ToString() + " ";
+            string height = " -h " + HeightNumericUpDown.Value.ToString() + " ";
 
-            string TextResult = GoodDat + GoodVec + Width + Height;
+            string textResult = goodDat + goodVec + width + height;
 
             try
             {
-                Process Process_Opencv_Traincascade = new Process();
-                ProcessStartInfo CommandLine = new ProcessStartInfo();
+                Process process_Opencv_Traincascade = new Process();
+                ProcessStartInfo commandLine = new ProcessStartInfo();
 
                 //Указываем, где лежит exe, и определяем, с какими параметрами приложение будет запускаться
-                CommandLine.FileName = textBoxResult.Text;
-                CommandLine.Arguments = TextResult;
+                commandLine.FileName = textBoxResult.Text;
+                commandLine.Arguments = textResult;
 
                 // Запускаем Алармы
-                Process_Opencv_Traincascade.StartInfo = CommandLine;
-                Process_Opencv_Traincascade.Start();
+                process_Opencv_Traincascade.StartInfo = commandLine;
+                process_Opencv_Traincascade.Start();
             }
-            catch (Exception Error)
+            catch (Exception error)
             {
-                MessageBox.Show(Error.Message);
+                MessageBox.Show(error.Message);
             }
         }
     }

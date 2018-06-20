@@ -44,7 +44,7 @@ namespace CutImageArea
             InitializeComponent();
 
             _eventMouse = new EventMouse();
-            _eventImage = new EventImage(CountImage);
+            _eventImage = new EventImage(countImage);
         }
 
         /// <summary>
@@ -116,8 +116,8 @@ namespace CutImageArea
         /// <param name="events"> Cодержащих данные событий.</param>
         private void Click_OpenCommonFormat(object sender, EventArgs events)
         {
-            CommonFormat CommonFormatForm = new CommonFormat();
-            CommonFormatForm.ShowDialog();
+            CommonFormat сommonFormatForm = new CommonFormat();
+            сommonFormatForm.ShowDialog();
         }
 
         /// <summary>
@@ -127,8 +127,8 @@ namespace CutImageArea
         /// <param name="events"> Cодержащих данные событий.</param>
         private void Haarcascade_Click(object sender, EventArgs events)
         {
-            CascadeTraining CascadeTrainingForm = new CascadeTraining();
-            CascadeTrainingForm.ShowDialog();
+            CascadeTraining сascadeTrainingForm = new CascadeTraining();
+            сascadeTrainingForm.ShowDialog();
         }
     }
 }

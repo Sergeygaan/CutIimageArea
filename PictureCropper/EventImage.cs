@@ -3,8 +3,6 @@ using Emgu.CV.Structure;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace CutImageArea
@@ -25,16 +23,17 @@ namespace CutImageArea
         private int _currentImageIndex = -1;
 
         /// <summary>
-        /// Отображение текущего номера картиник
+        /// Отображение текущего номера картинки
         /// </summary>
         private Label _countImage;
 
         /// <summary>
         /// Конструктор класса
         /// </summary>
-        public EventImage(Label CountImage)
+        /// <param name="countImage">Переменная, для вывода на форму номера текущей картинки.</param>
+        public EventImage(Label countImage)
         {
-            _countImage = CountImage;
+            _countImage = countImage;
         }
 
         /// <summary>
@@ -61,6 +60,7 @@ namespace CutImageArea
             else
             {
                 _currentImageIndex += 1;
+
                 MessageBox.Show("Изображения закончились");
             }
 
@@ -99,33 +99,33 @@ namespace CutImageArea
         /// <param name="fileLocationList"> Список загруженных изображений.</param>
         public void LoadImage(List<string> fileLocationList)
         {
-            FolderBrowserDialog FBD = new FolderBrowserDialog();
-            FBD.SelectedPath = Environment.CurrentDirectory;
+            FolderBrowserDialog folderBrowser = new FolderBrowserDialog();
+            folderBrowser.SelectedPath = Environment.CurrentDirectory;
 
-            if (FBD.ShowDialog() == DialogResult.OK) //Откроем папку с изображениями
+            if (folderBrowser.ShowDialog() == DialogResult.OK) //Откроем папку с изображениями
             {
-                string Folder = FBD.SelectedPath;
-                DirectoryInfo ThisDir = new DirectoryInfo(Folder);
-                FileInfo[] FI = ThisDir.GetFiles();
+                string folder = folderBrowser.SelectedPath;
 
-                for (int Index = 0; Index < FI.Length; Index++) //Запишем все изображения из папки в лист
+                DirectoryInfo thisDirectory = new DirectoryInfo(folder);
+                FileInfo[] fileInfo = thisDirectory.GetFiles();
+
+                for (int Index = 0; Index < fileInfo.Length; Index++) //Запишем все изображения из папки в лист
                 {
-                    if ((FI[Index].Extension == ".jpg") || (FI[Index].Extension == ".jpeg") || (FI[Index].Extension == ".bmp") || (FI[Index].Extension == ".png"))
+                    if ((fileInfo[Index].Extension == ".jpg") || (fileInfo[Index].Extension == ".jpeg") || (fileInfo[Index].Extension == ".bmp") || (fileInfo[Index].Extension == ".png"))
                     {
-                        fileLocationList.Add(FI[Index].FullName);
+                        fileLocationList.Add(fileInfo[Index].FullName);
                     }
                 }
 
-                string Path = Folder + "\\Good\\Good.dat";
+                string path = folder + "\\Good\\Good.dat";
 
-                if (File.Exists(Path))
+                if (File.Exists(path))
                 {
-                    File.Delete(Path);
+                    File.Delete(path);
                 }
 
-                _fileAdress = Path;
+                _fileAdress = path;
             }
         }
-
     }
 }

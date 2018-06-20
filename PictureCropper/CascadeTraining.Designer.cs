@@ -140,7 +140,7 @@
             this.button_GoodVec.TabIndex = 9;
             this.button_GoodVec.Text = "...";
             this.button_GoodVec.UseVisualStyleBackColor = true;
-            this.button_GoodVec.Click += new System.EventHandler(this.button2_Click);
+            this.button_GoodVec.Click += new System.EventHandler(this.Button_Click_GoodVec);
             // 
             // button4
             // 

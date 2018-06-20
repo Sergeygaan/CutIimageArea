@@ -97,7 +97,7 @@
             this.button_GoodDat.TabIndex = 4;
             this.button_GoodDat.Text = "...";
             this.button_GoodDat.UseVisualStyleBackColor = true;
-            this.button_GoodDat.Click += new System.EventHandler(this.button_GoodDat_Click);
+            this.button_GoodDat.Click += new System.EventHandler(this.Button_GoodDat_Click);
             // 
             // textBox_GoodDat
             // 
@@ -121,7 +121,7 @@
             this.button_GoodVec.TabIndex = 9;
             this.button_GoodVec.Text = "...";
             this.button_GoodVec.UseVisualStyleBackColor = true;
-            this.button_GoodVec.Click += new System.EventHandler(this.button_GoodVec_Click);
+            this.button_GoodVec.Click += new System.EventHandler(this.Button_GoodVec_Click);
             // 
             // button4
             // 
@@ -131,7 +131,7 @@
             this.button4.TabIndex = 11;
             this.button4.Text = "Фармировать файл .vec";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button_Format_Click);
+            this.button4.Click += new System.EventHandler(this.Button_Format_Click);
             // 
             // textBoxResult
             // 

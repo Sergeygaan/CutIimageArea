@@ -33,7 +33,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.CountImage = new System.Windows.Forms.Label();
+            this.countImage = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
@@ -84,13 +84,13 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.SaveImage_Button);
             // 
-            // CountImage
+            // countImage
             // 
-            this.CountImage.AutoSize = true;
-            this.CountImage.Location = new System.Drawing.Point(13, 442);
-            this.CountImage.Name = "CountImage";
-            this.CountImage.Size = new System.Drawing.Size(0, 13);
-            this.CountImage.TabIndex = 6;
+            this.countImage.AutoSize = true;
+            this.countImage.Location = new System.Drawing.Point(13, 442);
+            this.countImage.Name = "countImage";
+            this.countImage.Size = new System.Drawing.Size(0, 13);
+            this.countImage.TabIndex = 6;
             // 
             // label1
             // 
@@ -141,7 +141,7 @@
             this.Controls.Add(this.button4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.CountImage);
+            this.Controls.Add(this.countImage);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -160,7 +160,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label CountImage;
+        private System.Windows.Forms.Label countImage;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button4;
