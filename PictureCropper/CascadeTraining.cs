@@ -22,7 +22,7 @@ namespace CutImageArea
         /// </summary>
         /// <param name="sender"> Объект, который вызвал событие.</param>
         /// <param name="events"> Cодержащих данные событий.</param>
-        private void button1_Click(object sender, EventArgs events)
+        private void Button_Click_PathCascade(object sender, EventArgs events)
         {
             using (var folderDialog = new FolderBrowserDialog())
             {
@@ -84,7 +84,7 @@ namespace CutImageArea
         /// </summary>
         /// <param name="sender"> Объект, который вызвал событие.</param>
         /// <param name="events">Класс, выполняющий передачу событий.</param>
-        private void button4_Click(object sender, EventArgs events)
+        private void Button_Click_Result(object sender, EventArgs events)
         {
             string haarcascade = "-data " + textBox_Haarcascade.Text + " ";
             string goodVec = "-vec " + textBox_GoodVec.Text + " ";

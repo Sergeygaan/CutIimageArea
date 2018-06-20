@@ -116,7 +116,7 @@
             this.button_Haarcascade.TabIndex = 4;
             this.button_Haarcascade.Text = "...";
             this.button_Haarcascade.UseVisualStyleBackColor = true;
-            this.button_Haarcascade.Click += new System.EventHandler(this.button1_Click);
+            this.button_Haarcascade.Click += new System.EventHandler(this.Button_Click_PathCascade);
             // 
             // textBox_Haarcascade
             // 
@@ -150,7 +150,7 @@
             this.button4.TabIndex = 11;
             this.button4.Text = "Начать обучение";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button4.Click += new System.EventHandler(this.Button_Click_Result);
             // 
             // textBoxResult
             // 
