@@ -1,3 +1,5 @@
 .vs
 obj
 /Face/ProcessedPhotos
+/PictureCropper/bin/Debug/CutImageArea.exe
+/PictureCropper/bin/Debug/CutImageArea.pdb

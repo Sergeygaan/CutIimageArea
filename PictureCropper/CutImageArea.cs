@@ -117,7 +117,7 @@ namespace CutImageArea
         private void Click_OpenCommonFormat(object sender, EventArgs events)
         {
             CommonFormat CommonFormatForm = new CommonFormat();
-            CommonFormatForm.Show();
+            CommonFormatForm.ShowDialog();
         }
 
         /// <summary>
@@ -128,7 +128,7 @@ namespace CutImageArea
         private void Haarcascade_Click(object sender, EventArgs events)
         {
             CascadeTraining CascadeTrainingForm = new CascadeTraining();
-            CascadeTrainingForm.Show();
+            CascadeTrainingForm.ShowDialog();
         }
     }
 }

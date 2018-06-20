@@ -431,6 +431,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.PathGoodDat);
             this.Name = "CascadeTraining";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "CommonFormat";
             ((System.ComponentModel.ISupportInitialize)(this.HeightNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.WidthNumericUpDown)).EndInit();
