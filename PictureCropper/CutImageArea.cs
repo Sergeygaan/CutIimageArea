@@ -37,6 +37,16 @@ namespace CutImageArea
         private EventImage _eventImage;
 
         /// <summary>
+        /// Переменная, хранящая в себе класс для формирования строки по обучению каскада хаара
+        /// </summary>
+        CascadeTraining _сascadeTrainingForm;
+
+        /// <summary>
+        ///  Переменная, хранящая в себе класс для приведения положительных примеров к единому виду
+        /// </summary>
+        CommonFormat _сommonFormatForm;
+
+        /// <summary>
         /// Инициализация формы
         /// </summary>
         public CutImageArea()
@@ -116,8 +126,10 @@ namespace CutImageArea
         /// <param name="events"> Cодержащих данные событий.</param>
         private void Click_OpenCommonFormat(object sender, EventArgs events)
         {
-            CommonFormat сommonFormatForm = new CommonFormat();
-            сommonFormatForm.ShowDialog();
+            _сommonFormatForm = new CommonFormat();
+            _сommonFormatForm.ShowDialog();
+
+            _сommonFormatForm.Dispose();
         }
 
         /// <summary>
@@ -127,8 +139,10 @@ namespace CutImageArea
         /// <param name="events"> Cодержащих данные событий.</param>
         private void Haarcascade_Click(object sender, EventArgs events)
         {
-            CascadeTraining сascadeTrainingForm = new CascadeTraining();
-            сascadeTrainingForm.ShowDialog();
+            _сascadeTrainingForm = new CascadeTraining();
+            _сascadeTrainingForm.ShowDialog();
+
+            _сascadeTrainingForm.Dispose();
         }
     }
 }
