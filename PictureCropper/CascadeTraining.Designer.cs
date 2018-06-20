@@ -71,25 +71,25 @@
             // PathGoodDat
             // 
             this.PathGoodDat.AutoSize = true;
-            this.PathGoodDat.Location = new System.Drawing.Point(12, 9);
+            this.PathGoodDat.Location = new System.Drawing.Point(392, 6);
             this.PathGoodDat.Name = "PathGoodDat";
-            this.PathGoodDat.Size = new System.Drawing.Size(310, 13);
+            this.PathGoodDat.Size = new System.Drawing.Size(175, 13);
             this.PathGoodDat.TabIndex = 0;
-            this.PathGoodDat.Text = "Адрес папки с куда класть готовый каскад после обучения";
+            this.PathGoodDat.Text = "Расположение готового каскада\r\n";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 52);
+            this.label1.Location = new System.Drawing.Point(392, 49);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(310, 13);
+            this.label1.Size = new System.Drawing.Size(141, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Путь до файла описания положительных изображений .vec";
+            this.label1.Text = "Расположение файла .vec";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 381);
+            this.label2.Location = new System.Drawing.Point(9, 126);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 13);
             this.label2.TabIndex = 2;
@@ -98,7 +98,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 343);
+            this.label3.Location = new System.Drawing.Point(8, 88);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(93, 13);
             this.label3.TabIndex = 3;
@@ -110,7 +110,7 @@
             // 
             // button_Haarcascade
             // 
-            this.button_Haarcascade.Location = new System.Drawing.Point(325, 5);
+            this.button_Haarcascade.Location = new System.Drawing.Point(689, 23);
             this.button_Haarcascade.Name = "button_Haarcascade";
             this.button_Haarcascade.Size = new System.Drawing.Size(26, 20);
             this.button_Haarcascade.TabIndex = 4;
@@ -120,21 +120,21 @@
             // 
             // textBox_Haarcascade
             // 
-            this.textBox_Haarcascade.Location = new System.Drawing.Point(15, 26);
+            this.textBox_Haarcascade.Location = new System.Drawing.Point(395, 23);
             this.textBox_Haarcascade.Name = "textBox_Haarcascade";
-            this.textBox_Haarcascade.Size = new System.Drawing.Size(589, 20);
+            this.textBox_Haarcascade.Size = new System.Drawing.Size(288, 20);
             this.textBox_Haarcascade.TabIndex = 5;
             // 
             // textBox_GoodVec
             // 
-            this.textBox_GoodVec.Location = new System.Drawing.Point(15, 71);
+            this.textBox_GoodVec.Location = new System.Drawing.Point(395, 68);
             this.textBox_GoodVec.Name = "textBox_GoodVec";
-            this.textBox_GoodVec.Size = new System.Drawing.Size(589, 20);
+            this.textBox_GoodVec.Size = new System.Drawing.Size(288, 20);
             this.textBox_GoodVec.TabIndex = 6;
             // 
             // button_GoodVec
             // 
-            this.button_GoodVec.Location = new System.Drawing.Point(325, 48);
+            this.button_GoodVec.Location = new System.Drawing.Point(689, 68);
             this.button_GoodVec.Name = "button_GoodVec";
             this.button_GoodVec.Size = new System.Drawing.Size(26, 20);
             this.button_GoodVec.TabIndex = 9;
@@ -144,7 +144,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(244, 526);
+            this.button4.Location = new System.Drawing.Point(279, 195);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(136, 26);
             this.button4.TabIndex = 11;
@@ -154,23 +154,23 @@
             // 
             // textBoxResult
             // 
-            this.textBoxResult.Location = new System.Drawing.Point(7, 500);
+            this.textBoxResult.Location = new System.Drawing.Point(395, 168);
             this.textBoxResult.Name = "textBoxResult";
-            this.textBoxResult.Size = new System.Drawing.Size(592, 20);
+            this.textBoxResult.Size = new System.Drawing.Size(288, 20);
             this.textBoxResult.TabIndex = 12;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 481);
+            this.label4.Location = new System.Drawing.Point(392, 149);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(421, 13);
+            this.label4.Size = new System.Drawing.Size(253, 13);
             this.label4.TabIndex = 13;
-            this.label4.Text = "Путь до файла \"opencv_traincascade.exe\", который выполняет обучение каскада.";
+            this.label4.Text = "Расположение файла \"opencv_traincascade.exe\"";
             // 
             // HeightNumericUpDown
             // 
-            this.HeightNumericUpDown.Location = new System.Drawing.Point(12, 398);
+            this.HeightNumericUpDown.Location = new System.Drawing.Point(12, 143);
             this.HeightNumericUpDown.Name = "HeightNumericUpDown";
             this.HeightNumericUpDown.Size = new System.Drawing.Size(120, 20);
             this.HeightNumericUpDown.TabIndex = 15;
@@ -182,7 +182,7 @@
             // 
             // WidthNumericUpDown
             // 
-            this.WidthNumericUpDown.Location = new System.Drawing.Point(12, 359);
+            this.WidthNumericUpDown.Location = new System.Drawing.Point(12, 104);
             this.WidthNumericUpDown.Name = "WidthNumericUpDown";
             this.WidthNumericUpDown.Size = new System.Drawing.Size(120, 20);
             this.WidthNumericUpDown.TabIndex = 16;
@@ -194,7 +194,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(342, 97);
+            this.button1.Location = new System.Drawing.Point(689, 118);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(26, 20);
             this.button1.TabIndex = 21;
@@ -204,24 +204,24 @@
             // 
             // textBox_BadDat
             // 
-            this.textBox_BadDat.Location = new System.Drawing.Point(13, 120);
+            this.textBox_BadDat.Location = new System.Drawing.Point(395, 119);
             this.textBox_BadDat.Name = "textBox_BadDat";
-            this.textBox_BadDat.Size = new System.Drawing.Size(589, 20);
+            this.textBox_BadDat.Size = new System.Drawing.Size(288, 20);
             this.textBox_BadDat.TabIndex = 20;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 101);
+            this.label6.Location = new System.Drawing.Point(392, 98);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(323, 13);
+            this.label6.Size = new System.Drawing.Size(157, 13);
             this.label6.TabIndex = 19;
-            this.label6.Text = "Путь до файла описания отрицательных изображений Bad.dat";
+            this.label6.Text = "Расположение файла Bad.dat";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(9, 143);
+            this.label7.Location = new System.Drawing.Point(209, 6);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(158, 13);
             this.label7.TabIndex = 22;
@@ -229,7 +229,7 @@
             // 
             // numericUpDown_NumStages
             // 
-            this.numericUpDown_NumStages.Location = new System.Drawing.Point(12, 159);
+            this.numericUpDown_NumStages.Location = new System.Drawing.Point(212, 22);
             this.numericUpDown_NumStages.Maximum = new decimal(new int[] {
             25,
             0,
@@ -257,7 +257,7 @@
             0,
             0,
             196608});
-            this.numericUpDown_Minhitrate.Location = new System.Drawing.Point(12, 198);
+            this.numericUpDown_Minhitrate.Location = new System.Drawing.Point(212, 61);
             this.numericUpDown_Minhitrate.Maximum = new decimal(new int[] {
             1,
             0,
@@ -275,11 +275,11 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 182);
+            this.label8.Location = new System.Drawing.Point(212, 45);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(258, 13);
+            this.label8.Size = new System.Drawing.Size(175, 13);
             this.label8.TabIndex = 24;
-            this.label8.Text = "Коэффициент, определяющий качество обучения";
+            this.label8.Text = "Коэффициент качества обучения";
             // 
             // numericUpDown_MaxFalseAlarmRate
             // 
@@ -289,7 +289,7 @@
             0,
             0,
             65536});
-            this.numericUpDown_MaxFalseAlarmRate.Location = new System.Drawing.Point(12, 237);
+            this.numericUpDown_MaxFalseAlarmRate.Location = new System.Drawing.Point(212, 100);
             this.numericUpDown_MaxFalseAlarmRate.Maximum = new decimal(new int[] {
             1,
             0,
@@ -307,7 +307,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(9, 221);
+            this.label9.Location = new System.Drawing.Point(209, 84);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(133, 13);
             this.label9.TabIndex = 26;
@@ -315,7 +315,7 @@
             // 
             // numericUpDown_NumPos
             // 
-            this.numericUpDown_NumPos.Location = new System.Drawing.Point(12, 276);
+            this.numericUpDown_NumPos.Location = new System.Drawing.Point(12, 22);
             this.numericUpDown_NumPos.Maximum = new decimal(new int[] {
             50000,
             0,
@@ -328,7 +328,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(9, 260);
+            this.label10.Location = new System.Drawing.Point(8, 6);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(182, 13);
             this.label10.TabIndex = 28;
@@ -336,7 +336,7 @@
             // 
             // numericUpDown_NumNeg
             // 
-            this.numericUpDown_NumNeg.Location = new System.Drawing.Point(12, 315);
+            this.numericUpDown_NumNeg.Location = new System.Drawing.Point(12, 61);
             this.numericUpDown_NumNeg.Maximum = new decimal(new int[] {
             50000,
             0,
@@ -349,7 +349,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(9, 299);
+            this.label11.Location = new System.Drawing.Point(9, 45);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(181, 13);
             this.label11.TabIndex = 30;
@@ -357,7 +357,7 @@
             // 
             // numericUpDown_Precalc
             // 
-            this.numericUpDown_Precalc.Location = new System.Drawing.Point(13, 438);
+            this.numericUpDown_Precalc.Location = new System.Drawing.Point(212, 143);
             this.numericUpDown_Precalc.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -380,7 +380,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(10, 421);
+            this.label12.Location = new System.Drawing.Point(209, 126);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(178, 13);
             this.label12.TabIndex = 32;
@@ -388,7 +388,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(435, 477);
+            this.button2.Location = new System.Drawing.Point(689, 167);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(26, 20);
             this.button2.TabIndex = 34;
@@ -400,7 +400,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(628, 556);
+            this.ClientSize = new System.Drawing.Size(723, 233);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.numericUpDown_Precalc);
             this.Controls.Add(this.label12);
