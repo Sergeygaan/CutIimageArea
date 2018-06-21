@@ -14,12 +14,12 @@ namespace CutImageArea
         /// <summary>
         /// Начало выделения области
         /// </summary>
-        private Point _mouseDownStart = new Point();
+        private Point _mouseDownStart;
 
         /// <summary>
         /// Вырезанное изображение
         /// </summary>
-        private bool _flagButton = false;
+        private bool _flagButton;
 
         /// <summary>
         /// Начало выделения области

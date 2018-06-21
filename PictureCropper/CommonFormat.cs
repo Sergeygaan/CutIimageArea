@@ -53,7 +53,7 @@ namespace CutImageArea
         /// </summary>
         /// <param name="sender"> Объект, который вызвал событие.</param>
         /// <param name="events"> Cодержащих данные событий.</param>
-        private void PathButtom_Click(object sender, EventArgs e)
+        private void PathButtom_Click(object sender, EventArgs events)
         {
             if (openFileDialog1.ShowDialog() != DialogResult.OK)
             {
@@ -72,14 +72,14 @@ namespace CutImageArea
         {
             string goodDat = "-info " + textBox_GoodDat.Text + " ";
             string goodVec = "-vec " + textBox_GoodVec.Text + "\\" + textBox_NameVec.Text + ".vec ";
-            string width = "-w " + WidthNumericUpDown.Value.ToString() + " ";
-            string height = " -h " + HeightNumericUpDown.Value.ToString() + " ";
+            string width = "-w " + WidthNumericUpDown.Value + " ";
+            string height = " -h " + HeightNumericUpDown.Value + " ";
 
             string textResult = goodDat + goodVec + width + height;
 
             try
             {
-                Process process_Opencv_Traincascade = new Process();
+                Process processCommonFormat = new Process();
                 ProcessStartInfo commandLine = new ProcessStartInfo();
 
                 //Указываем, где лежит exe, и определяем, с какими параметрами приложение будет запускаться
@@ -87,8 +87,8 @@ namespace CutImageArea
                 commandLine.Arguments = textResult;
 
                 // Запускаем Алармы
-                process_Opencv_Traincascade.StartInfo = commandLine;
-                process_Opencv_Traincascade.Start();
+                processCommonFormat.StartInfo = commandLine;
+                processCommonFormat.Start();
             }
             catch (Exception error)
             {

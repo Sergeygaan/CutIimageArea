@@ -76,20 +76,22 @@ namespace CutImageArea
         {
             if ((fileLocationList.Count != 0) && ((_currentImageIndex < fileLocationList.Count)))
             {
-                string Path = fileLocationList[_currentImageIndex].Substring(0, fileLocationList[_currentImageIndex].LastIndexOf("\\") + 1) + "Good";
+                string path = fileLocationList[_currentImageIndex].Substring(0, fileLocationList[_currentImageIndex].LastIndexOf("\\") + 1) + "Good";
 
-                if (!Directory.Exists(Path))
+                if (!Directory.Exists(path))
                 {
-                    Directory.CreateDirectory(Path);
+                    Directory.CreateDirectory(path);
                 }
 
-                string PathImageName = fileLocationList[_currentImageIndex].Substring(fileLocationList[_currentImageIndex].LastIndexOf("\\"), fileLocationList[_currentImageIndex].Length - fileLocationList[_currentImageIndex].LastIndexOf("\\") - 4) + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + ".bmp";
+                string pathImageName = fileLocationList[_currentImageIndex].Substring(fileLocationList[_currentImageIndex].LastIndexOf("\\"), 
+                                           fileLocationList[_currentImageIndex].Length - fileLocationList[_currentImageIndex].LastIndexOf("\\") - 4) 
+                                            + DateTime.Now.Hour + DateTime.Now.Minute + DateTime.Now.Second + ".bmp";
 
-                Path = Path + PathImageName;
+                path = path + pathImageName;
 
-                carvedImage.Save(Path);
+                carvedImage.Save(path);
 
-                File.AppendAllText(_fileAdress, PathImageName + "  1  " + "0 0 " + carvedImage.Width + " " + carvedImage.Height + "\r\n");
+                File.AppendAllText(_fileAdress, pathImageName + "  1  " + "0 0 " + carvedImage.Width + " " + carvedImage.Height + "\r\n");
             }
         }
 
@@ -109,11 +111,13 @@ namespace CutImageArea
                 DirectoryInfo thisDirectory = new DirectoryInfo(folder);
                 FileInfo[] fileInfo = thisDirectory.GetFiles();
 
-                for (int Index = 0; Index < fileInfo.Length; Index++) //Запишем все изображения из папки в лист
+                for (int i = 0; i < fileInfo.Length; i++) //Запишем все изображения из папки в лист
                 {
-                    if ((fileInfo[Index].Extension == ".jpg") || (fileInfo[Index].Extension == ".jpeg") || (fileInfo[Index].Extension == ".bmp") || (fileInfo[Index].Extension == ".png"))
+                    if ((fileInfo[i].Extension == ".jpg") || (fileInfo[i].Extension == ".jpeg") 
+                                                          || (fileInfo[i].Extension == ".bmp") 
+                                                          || (fileInfo[i].Extension == ".png"))
                     {
-                        fileLocationList.Add(fileInfo[Index].FullName);
+                        fileLocationList.Add(fileInfo[i].FullName);
                     }
                 }
 

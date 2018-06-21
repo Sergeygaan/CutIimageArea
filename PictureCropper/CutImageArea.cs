@@ -39,12 +39,12 @@ namespace CutImageArea
         /// <summary>
         /// Переменная, хранящая в себе класс для формирования строки по обучению каскада хаара
         /// </summary>
-        CascadeTraining _сascadeTrainingForm;
+        private CascadeTraining _сascadeTrainingForm;
 
         /// <summary>
         ///  Переменная, хранящая в себе класс для приведения положительных примеров к единому виду
         /// </summary>
-        CommonFormat _сommonFormatForm;
+        private CommonFormat _сommonFormatForm;
 
         /// <summary>
         /// Инициализация формы
