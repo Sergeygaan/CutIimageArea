@@ -99,7 +99,8 @@ namespace CutImageArea
             string mode = "-mode ALL ";
             string precalc = "-precalcValBufSize " + numericUpDown_Precalc.Value + " -precalcIdxBufSize " + numericUpDown_Precalc.Value;
 
-            string textResult = haarcascade + goodVec + badDat + numStages + minhitrate + maxFalseAlarmRate + numPos + numNeg + width + height + mode + precalc;
+            string textResult = haarcascade + goodVec + badDat + numStages + minhitrate 
+                                + maxFalseAlarmRate + numPos + numNeg + width + height + mode + precalc;
 
             try
             {

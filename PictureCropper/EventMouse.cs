@@ -9,7 +9,7 @@ namespace CutImageArea
     /// <summary>
     /// Класс, выполняющий различные операции с событиями мыши
     /// </summary>
-    class EventMouse
+    public class EventMouse
     {
         /// <summary>
         /// Начало выделения области
@@ -97,7 +97,8 @@ namespace CutImageArea
             double scaleX = currentImage.Width / (double)pictureWindow.Width;
             double scaleY = currentImage.Height / (double)pictureWindow.Height;
 
-            Rectangle rectangle = new Rectangle((int)(selectPoint.X * scaleX), (int)(selectPoint.Y * scaleY), (int)(sizePoint.X * scaleX), (int)(sizePoint.Y * scaleY));
+            Rectangle rectangle = new Rectangle((int)(selectPoint.X * scaleX), (int)(selectPoint.Y * scaleY), 
+                                                (int)(sizePoint.X * scaleX), (int)(sizePoint.Y * scaleY));
 
             Image<Bgr, Byte> imageClone = currentImage.Clone();
             imageClone.Draw(rectangle, new Bgr(0, 0, 0), 2);

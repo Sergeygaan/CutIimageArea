@@ -10,7 +10,7 @@ namespace CutImageArea
     /// <summary>
     /// Класс, для обработки изображений
     /// </summary>
-    class EventImage
+    public class EventImage
     {
         /// <summary>
         /// Адрес файла с описанием
