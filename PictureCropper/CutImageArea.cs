@@ -101,7 +101,8 @@ namespace CutImageArea
         private void LoadImage_Button(object sender, EventArgs events)
         {
             _eventImage.LoadImage(_fileLocationList);
-            _currentImage = _eventImage.NextNumber(_fileLocationList, _currentImage, PictureWindow);
+            _currentImage = _eventImage.NextNumber(_fileLocationList, 
+                _currentImage, PictureWindow);
         }
 
         /// <summary>
@@ -116,7 +117,8 @@ namespace CutImageArea
         }
 
         /// <summary>
-        /// Метод, для сохранения области выделения нужного фрагмента изображения и перехода на следующее изображение
+        /// Метод, для сохранения области выделения нужного
+        /// фрагмента изображения и перехода на следующее изображение
         /// </summary>
         /// <param name="sender"> Объект, который вызвал событие.</param>
         /// <param name="events"> Cодержащих данные событий.</param>
@@ -126,7 +128,8 @@ namespace CutImageArea
         }
 
         /// <summary>
-        /// Метод, открытия формы формирование положительных изображений к единому формату
+        /// Метод, открытия формы формирование положительных
+        /// изображений к единому формату
         /// </summary>
         /// <param name="sender"> Объект, который вызвал событие.</param>
         /// <param name="events"> Cодержащих данные событий.</param>

@@ -82,7 +82,8 @@ namespace CutImageArea
         /// <param name="carvedImage"> Вырезанная часть изображения.</param> 
         public void SaveImage(List<string> fileLocationList, Image<Bgr, Byte> carvedImage)
         {
-            if (fileLocationList.Count != 0 && _currentImageIndex < fileLocationList.Count)
+            if (fileLocationList.Count != 0 
+                && _currentImageIndex < fileLocationList.Count)
             {
                 int indexLenght = fileLocationList[_currentImageIndex]
                                                 .LastIndexOf("\\") + 1;
