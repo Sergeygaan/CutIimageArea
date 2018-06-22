@@ -5,7 +5,8 @@ using System.Windows.Forms;
 namespace CutImageArea
 {
     /// <summary>
-    /// Класс, для формирования строки для приведения положительных примеров к единому виду
+    /// Класс, для формирования строки для приведения положительных
+    /// примеров к единому виду
     /// </summary>
     public partial class CommonFormat : Form
     {
@@ -33,7 +34,8 @@ namespace CutImageArea
         }
 
         /// <summary>
-        /// Путь, куда сохранять выходной файл с приведенными к общему формату положительными изображениями
+        /// Путь, куда сохранять выходной файл с приведенными
+        /// к общему формату положительными изображениями
         /// </summary>
         /// <param name="sender"> Объект, который вызвал событие.</param>
         /// <param name="events"> Cодержащих данные событий.</param>
@@ -49,7 +51,8 @@ namespace CutImageArea
         }
 
         /// <summary>
-        /// Путь, до файла выполняюжего приведение положительных изображений к единому виду
+        /// Путь, до файла выполняюжего приведение положительных
+        /// изображений к единому виду
         /// </summary>
         /// <param name="sender"> Объект, который вызвал событие.</param>
         /// <param name="events"> Cодержащих данные событий.</param>
@@ -71,8 +74,12 @@ namespace CutImageArea
         private void Button_Format_Click(object sender, EventArgs events)
         {
             string goodDat = "-info " + textBox_GoodDat.Text + " ";
-            string goodVec = "-vec " + textBox_GoodVec.Text + "\\" + textBox_NameVec.Text + ".vec ";
+
+            string goodVec = "-vec " + textBox_GoodVec.Text + "\\"
+                                     + textBox_NameVec.Text + ".vec ";
+
             string width = "-w " + WidthNumericUpDown.Value + " ";
+
             string height = " -h " + HeightNumericUpDown.Value + " ";
 
             string textResult = goodDat + goodVec + width + height;
@@ -80,11 +87,13 @@ namespace CutImageArea
             try
             {
                 Process processCommonFormat = new Process();
-                ProcessStartInfo commandLine = new ProcessStartInfo();
-
-                //Указываем, где лежит exe, и определяем, с какими параметрами приложение будет запускаться
-                commandLine.FileName = textBoxResult.Text;
-                commandLine.Arguments = textResult;
+                ProcessStartInfo commandLine = new ProcessStartInfo
+                {
+                    //Указываем, где лежит exe, и определяем, с какими
+                    //параметрами приложение будет запускаться
+                    FileName = textBoxResult.Text,
+                    Arguments = textResult
+                };
 
                 // Запускаем Алармы
                 processCommonFormat.StartInfo = commandLine;

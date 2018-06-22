@@ -22,7 +22,8 @@ namespace CutImageArea
         /// </summary>
         /// <param name="sender"> Объект, который вызвал событие.</param>
         /// <param name="events"> Cодержащих данные событий.</param>
-        private void Button_Click_PathCascade(object sender, EventArgs events)
+        private void Button_Click_PathCascade(object sender, 
+            EventArgs events)
         {
             using (var folderDialog = new FolderBrowserDialog())
             {
@@ -69,7 +70,8 @@ namespace CutImageArea
         /// </summary>
         /// <param name="sender"> Объект, который вызвал событие.</param>
         /// <param name="events">Класс, выполняющий передачу событий.</param>
-        private void Opencv_Traincascade_Click(object sender, EventArgs events)
+        private void Opencv_Traincascade_Click(object sender, 
+            EventArgs events)
         {
             if (openFileDialog1.ShowDialog() != DialogResult.OK)
             {
@@ -83,33 +85,64 @@ namespace CutImageArea
         /// Метод формирования итоговой строки для передачи в консоль
         /// </summary>
         /// <param name="sender"> Объект, который вызвал событие.</param>
-        /// <param name="events">Класс, выполняющий передачу событий.</param>
+        /// <param name="events">Класс, выполняющий передачу
+        /// событий.</param>
         private void Button_Click_Result(object sender, EventArgs events)
         {
             string haarcascade = "-data " + textBox_Haarcascade.Text + " ";
-            string goodVec = "-vec " + textBox_GoodVec.Text + " ";
-            string badDat = "-bg " + textBox_BadDat.Text + " ";
-            string numStages = "-numStages " + numericUpDown_NumStages.Value + " ";
-            string minhitrate = "-minhitrate " + numericUpDown_Minhitrate.Value + " ";
-            string maxFalseAlarmRate = "-maxFalseAlarmRate " + numericUpDown_MaxFalseAlarmRate.Value + " ";
-            string numPos = "-numPos " + numericUpDown_NumPos.Value + " ";
-            string numNeg = "-numNeg " + numericUpDown_NumNeg.Value + " ";
-            string width = "-w " + WidthNumericUpDown.Value + " ";
-            string height = " -h " + HeightNumericUpDown.Value + " ";
-            string mode = "-mode ALL ";
-            string precalc = "-precalcValBufSize " + numericUpDown_Precalc.Value + " -precalcIdxBufSize " + numericUpDown_Precalc.Value;
 
-            string textResult = haarcascade + goodVec + badDat + numStages + minhitrate 
-                                + maxFalseAlarmRate + numPos + numNeg + width + height + mode + precalc;
+            string goodVec = "-vec " + textBox_GoodVec.Text + " ";
+
+            string badDat = "-bg " + textBox_BadDat.Text + " ";
+
+            string numStages = "-numStages " 
+                               + numericUpDown_NumStages.Value + " ";
+
+            string minhitrate = "-minhitrate " 
+                                + numericUpDown_Minhitrate.Value + " ";
+
+            string maxFalseAlarmRate = "-maxFalseAlarmRate " 
+                               + numericUpDown_MaxFalseAlarmRate.Value + " ";
+
+            string numPos = "-numPos " + numericUpDown_NumPos.Value + " ";
+
+            string numNeg = "-numNeg " + numericUpDown_NumNeg.Value + " ";
+
+            string width = "-w " + WidthNumericUpDown.Value + " ";
+
+            string height = " -h " + HeightNumericUpDown.Value + " ";
+
+            string mode = "-mode ALL ";
+
+            string precalc = "-precalcValBufSize " 
+                             + numericUpDown_Precalc.Value 
+                             + " -precalcIdxBufSize " 
+                             + numericUpDown_Precalc.Value;
+
+            string textResult = haarcascade
+                                + goodVec
+                                + badDat 
+                                + numStages 
+                                + minhitrate 
+                                + maxFalseAlarmRate 
+                                + numPos 
+                                + numNeg 
+                                + width
+                                + height 
+                                + mode 
+                                + precalc;
 
             try
             {
                 Process processTrainCascade = new Process();
-                ProcessStartInfo commandLine = new ProcessStartInfo();
 
-                //Указываем, где лежит exe, и определяем, с какими параметрами приложение будет запускаться
-                commandLine.FileName = textBoxResult.Text;
-                commandLine.Arguments = textResult;
+                ProcessStartInfo commandLine = new ProcessStartInfo
+                {
+                    //Указываем, где лежит exe, и определяем,
+                    //с какими параметрами приложение будет запускаться
+                    FileName = textBoxResult.Text,
+                    Arguments = textResult
+                };
 
                 // Запускаем Алармы
                 processTrainCascade.StartInfo = commandLine;

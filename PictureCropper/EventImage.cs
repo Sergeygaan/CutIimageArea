@@ -30,7 +30,8 @@ namespace CutImageArea
         /// <summary>
         /// Конструктор класса
         /// </summary>
-        /// <param name="countImage">Переменная, для вывода на форму номера текущей картинки.</param>
+        /// <param name="countImage">Переменная, для вывода на форму
+        /// номера текущей картинки.</param>
         public EventImage(Label countImage)
         {
             _countImage = countImage;
@@ -39,21 +40,27 @@ namespace CutImageArea
         /// <summary>
         /// Взятие следующего изображения из папки
         /// </summary>
-        /// <param name="fileLocationList"> Список загруженных изображений.</param>
+        /// <param name="fileLocationList"> Список загруженных
+        /// изображений.</param>
         /// <param name="currentImage"> Текущее изображение.</param> 
-        /// <param name="pictureWindow"> Форма для вывода изображения.</param>
-        public Image<Bgr, Byte> NextNumber(List<string> fileLocationList, Image<Bgr, Byte> currentImage, Emgu.CV.UI.ImageBox pictureWindow)
+        /// <param name="pictureWindow"> Форма для вывода
+        /// изображения.</param>
+        public Image<Bgr, Byte> NextNumber(List<string> fileLocationList, 
+            Image<Bgr, Byte> currentImage, Emgu.CV.UI.ImageBox pictureWindow)
         {
             if (_currentImageIndex < fileLocationList.Count - 1)
             {
                 _currentImageIndex += 1;
 
                 //вывод текста с номером текущего изображения
-                _countImage.Text = (_currentImageIndex + 1).ToString() + " из " + fileLocationList.Count.ToString();
+                _countImage.Text = _currentImageIndex + 1
+                                   + " из " + fileLocationList.Count;
 
                 if (File.Exists(fileLocationList[_currentImageIndex]))
                 {
-                    currentImage = new Image<Emgu.CV.Structure.Bgr, byte>(fileLocationList[_currentImageIndex]);
+                    currentImage = new Image<Bgr, byte>(
+                        fileLocationList[_currentImageIndex]);
+
                     pictureWindow.Image = currentImage;
                 }
             }
@@ -70,52 +77,75 @@ namespace CutImageArea
         /// <summary>
         /// Метод, для сохранения изображения
         /// </summary>
-        /// <param name="fileLocationList"> Список загруженных изображений.</param>
+        /// <param name="fileLocationList"> Список загруженных
+        /// изображений.</param>
         /// <param name="carvedImage"> Вырезанная часть изображения.</param> 
         public void SaveImage(List<string> fileLocationList, Image<Bgr, Byte> carvedImage)
         {
-            if ((fileLocationList.Count != 0) && ((_currentImageIndex < fileLocationList.Count)))
+            if (fileLocationList.Count != 0 && _currentImageIndex < fileLocationList.Count)
             {
-                string path = fileLocationList[_currentImageIndex].Substring(0, fileLocationList[_currentImageIndex].LastIndexOf("\\") + 1) + "Good";
+                int indexLenght = fileLocationList[_currentImageIndex]
+                                                .LastIndexOf("\\") + 1;
+
+                string path = fileLocationList[_currentImageIndex]
+                                  .Substring(0, indexLenght) + "Good";
 
                 if (!Directory.Exists(path))
                 {
                     Directory.CreateDirectory(path);
                 }
 
-                string pathImageName = fileLocationList[_currentImageIndex].Substring(fileLocationList[_currentImageIndex].LastIndexOf("\\"), 
-                                           fileLocationList[_currentImageIndex].Length - fileLocationList[_currentImageIndex].LastIndexOf("\\") - 4) 
-                                            + DateTime.Now.Hour + DateTime.Now.Minute + DateTime.Now.Second + ".bmp";
+                var currentImageName = fileLocationList[_currentImageIndex];
 
-                path = path + pathImageName;
+                var charPos = fileLocationList[_currentImageIndex]
+                                                        .LastIndexOf("\\");
+
+                var lenghtLine = fileLocationList[_currentImageIndex]
+                            .Length - fileLocationList[_currentImageIndex]
+                            .LastIndexOf("\\") - 4;
+
+
+                string pathName = currentImageName.Substring(charPos, 
+                                        lenghtLine)
+                                        + DateTime.Now.Hour
+                                        + DateTime.Now.Minute
+                                        + DateTime.Now.Second
+                                        + ".bmp";
+
+                path = path + pathName;
 
                 carvedImage.Save(path);
 
-                File.AppendAllText(_fileAdress, pathImageName + "  1  " + "0 0 " + carvedImage.Width + " " + carvedImage.Height + "\r\n");
+                File.AppendAllText(_fileAdress, pathName
+                    + "  1  " + "0 0 " + carvedImage.Width + " " 
+                    + carvedImage.Height + "\r\n");
             }
         }
 
         /// <summary>
         /// Метод, для загрузки всех изображений из папки
         /// </summary>
-        /// <param name="fileLocationList"> Список загруженных изображений.</param>
+        /// <param name="fileLocationList"> Список загруженных
+        /// изображений.</param>
         public void LoadImage(List<string> fileLocationList)
         {
             FolderBrowserDialog folderBrowser = new FolderBrowserDialog();
             folderBrowser.SelectedPath = Environment.CurrentDirectory;
-
-            if (folderBrowser.ShowDialog() == DialogResult.OK) //Откроем папку с изображениями
+            //Откроем папку с изображениями
+            if (folderBrowser.ShowDialog() == DialogResult.OK)
             {
                 string folder = folderBrowser.SelectedPath;
 
                 DirectoryInfo thisDirectory = new DirectoryInfo(folder);
                 FileInfo[] fileInfo = thisDirectory.GetFiles();
 
-                for (int i = 0; i < fileInfo.Length; i++) //Запишем все изображения из папки в лист
+                //Запишем все изображения из папки в лист
+                for (var i = 0; i < fileInfo.Length; i++) 
                 {
-                    if ((fileInfo[i].Extension == ".jpg") || (fileInfo[i].Extension == ".jpeg") 
-                                                          || (fileInfo[i].Extension == ".bmp") 
-                                                          || (fileInfo[i].Extension == ".png"))
+                    if (fileInfo[i].Extension == ".jpg"
+                        || fileInfo[i].Extension == ".jpeg"
+                        || fileInfo[i].Extension == ".bmp"                          
+                        || fileInfo[i].Extension == ".png")
                     {
                         fileLocationList.Add(fileInfo[i].FullName);
                     }
